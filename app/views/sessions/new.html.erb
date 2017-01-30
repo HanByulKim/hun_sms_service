@@ -1,0 +1,9 @@
+<h1>Sign In</h1>
+<!--</%= flash[:alert] %>-->
+<%= form_tag sessions_path do %>
+    Email :
+    <input type="email" name="email"><br>
+    Password :
+    <input type="password" name="password"><br>
+    <input type="submit" value="Sign in">
+<% end %>

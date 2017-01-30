@@ -8,7 +8,17 @@
 </head>
 <body>
 
-<%= yield %>
+<% if user_signed_in? %>
+  <li class="item"><%= current_user.name %></li>
+  <li class="item"><%= link_to 'Sign Out', session_path(current_user), method: 'delete' %></li>  <!--     session DELETE /sessions/:id(.:format) sessions#destroy -->
+  <% if current_user.admin %>
+    <li class="item"></li> <!-- 관리자만의 탭 입력 -->
+  <% end %>
+<% else %>
+  <li class="item"><%= link_to 'Sign In', new_session_path %></li>
+  <li class="item"><%= link_to 'Sign Up', new_user_path %></li>
+<% end %>
 
+<%= yield %>
 </body>
 </html>

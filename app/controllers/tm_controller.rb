@@ -1,7 +1,10 @@
 class TmController < ApplicationController
+  before_action :authenticate#, only: [:sendtest]
+  before_action :authenticate_admin, only: [:sendtest]
   
-    def index
-    end
+  def index
+  end
+  
   def sendtest
     accountSID = ENV['TWILIO_SID']
     authToken = ENV['TWILIO_AUTH']
@@ -24,6 +27,5 @@ class TmController < ApplicationController
  # rescue_from StandardError do |exception|
   #  trigger_sms_alerts(exception)
   #end
-
   
 end
