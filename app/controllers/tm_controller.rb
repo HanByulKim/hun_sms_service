@@ -1,6 +1,6 @@
 class TmController < ApplicationController
   before_action :authenticate#, only: [:sendtest]
-  before_action :authenticate_admin, only: [:sendtest]
+  before_action :authenticate_admin#, only: [:sendtest]
   
   def index
   end
