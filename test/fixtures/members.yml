@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  residence: 1
+  elec_constit: 1
+  support_ide: 1
+  age: 1
+  sex: 1
+  recog: 1
+  par_eval: 1
+  support_re: 1
+  support_gov: 1
+  support_party: 1
+  governer: 1
+  job: MyString
+  position: MyString
+  homenum: MyString
+  compnum: MyString
+  email: MyString
+  recommender: MyString
+  native: MyString
+  birth: 1
+  partyfee: 1
+
+two:
+  name: MyString
+  phone: MyString
+  residence: 1
+  elec_constit: 1
+  support_ide: 1
+  age: 1
+  sex: 1
+  recog: 1
+  par_eval: 1
+  support_re: 1
+  support_gov: 1
+  support_party: 1
+  governer: 1
+  job: MyString
+  position: MyString
+  homenum: MyString
+  compnum: MyString
+  email: MyString
+  recommender: MyString
+  native: MyString
+  birth: 1
+  partyfee: 1
