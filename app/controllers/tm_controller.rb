@@ -15,8 +15,8 @@ class TmController < ApplicationController
     #frineds.each do |key, value|
       message = @client.account.messages.create(
         :from=> from,
-        :to=> '+821065101264',
-        :body=> "Key gogo, textmessage"
+        :to=> '+821031282001',
+        :body=> "Hi"
       )
       puts "Sent message"
     #end

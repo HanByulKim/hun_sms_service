@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in(user) #session[:user_id] = user.id # keep signin in server
       redirect_to '/'
     else
-      flash[:alert] = 'Invalid email/pw combination'
+      flash[:alert] = '이메일 또는 비밀번호가 틀림'
       redirect_to new_session_path
     end
   end

@@ -1,4 +1,7 @@
 class EnrollController < ApplicationController
+  before_action :authenticate#, only: [:sendtest]
+  before_action :authenticate_admin#, only: [:sendtest]
+  
     def register
         @member = Member.all
     end
