@@ -2,9 +2,6 @@ class TmController < ApplicationController
   before_action :authenticate#, only: [:sendtest]
   before_action :authenticate_admin#, only: [:sendtest]
   
-  def index
-  end
-  
   def sendtest
     accountSID = ENV['TWILIO_SID']
     authToken = ENV['TWILIO_AUTH']
@@ -18,7 +15,7 @@ class TmController < ApplicationController
         :to=> '+821031282001',
         :body=> "Hi"
       )
-      puts "Sent message"
+      puts "Sent message" 
     #end
     
     redirect_to '/'

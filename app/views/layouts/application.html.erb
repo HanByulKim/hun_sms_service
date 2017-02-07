@@ -16,16 +16,18 @@
   </head>
   
   <body>
-    <nav>
+    <nav class="indigo darken-1">
       <div class="nav-wrapper">
-        <a href="" class="brand-logo center">Logo</a>
+        <a href="/" class="brand-logo center">Logo</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if user_signed_in? %><!-- 관리자만의 탭 입력 -->
             <% if current_user.admin %>
               <li><a href=""><%= current_user.name %> <%= current_user.job %> 님</a></li>
+              <li><%= link_to 'Admin', video_index_path %></li>
             <% else %>
               <li><a href=""><%= current_user.name %> 님</a></li>
             <% end %>
+            <li class="item"><%= link_to 'Sign Out', session_path(current_user), method: 'delete' %></li>  <!--     session DELETE /sessions/:id(.:format) sessions#destroy -->
           <% else %>
             <li class="item"><%= link_to 'Sign In', new_session_path %></li>
             <li class="item"><%= link_to 'Sign Up', new_user_path %></li>
@@ -37,16 +39,6 @@
       </div>
     </nav>
     
-    <% if user_signed_in? %>
-      <li class="item"><%= current_user.name %></li>
-      <li class="item"><%= link_to 'Sign Out', session_path(current_user), method: 'delete' %></li>  <!--     session DELETE /sessions/:id(.:format) sessions#destroy -->
-      <% if current_user.admin %>
-        <li class="item"></li> <!-- 관리자만의 탭 입력 -->
-      <% end %>
-    <% else %>
-      <li class="item"><%= link_to 'Sign In', new_session_path %></li>
-      <li class="item"><%= link_to 'Sign Up', new_user_path %></li>
-    <% end %>
     <%= yield %>
   </body>
 </html>
