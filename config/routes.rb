@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   post '/enroll/create' => 'enroll#create'
   
   get '/video/index' => 'video#index'
-  get '/news/index' => 'news#index'
+  get '/news/index' => 'news#newsindex'
+  get '/blog/index' => 'news#blogindex'
+  get '/users/invitation' => 'users#invitation'
   # get '/' => 'tm#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

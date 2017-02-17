@@ -1,0 +1,17 @@
+<h1>Invitation</h1>
+<%= form_tag users_path do %>
+    Email :
+    <input type="email" name="email"><br>
+    Password :
+    <input type="password" name="password"><br>
+    Password Confirmation : 
+    <input type="password" name="password_confirmation"><br>
+    Name : 
+    <input type="text" name="name"><br>
+    Job :
+    <input type="text" name="job"><br>
+    Phone :
+    <input type="text" name="phone"><br>
+    
+    <input type="submit" value="Sign up">
+<% end %>

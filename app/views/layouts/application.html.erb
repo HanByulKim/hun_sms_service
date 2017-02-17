@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html>
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+  
+    main {
+      flex: 1 0 auto;
+    }
+  </style>
+    
   <head>
     <title>Workspace</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -10,13 +22,14 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
-  
-  <body>
+    
+    <!-- NAV AND SIDENAV -->
     <nav class="indigo darken-1">
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
       <div class="nav-wrapper">
         <a href="/" class="brand-logo center">Logo</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -39,6 +52,128 @@
       </div>
     </nav>
     
+    <ul id="slide-out" class="side-nav">
+      <li><div class="userView">
+        <div class="background">
+          <img src="images/office.jpg">
+        </div>
+        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+        <a href="#!name"><span class="white-text name">John Doe</span></a>
+        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+    
+    <script>
+      // Initialize collapse button
+      $(".button-collapse").sideNav();
+      // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+      //$('.collapsible').collapsible();
+    </script>
+  </head>
+  
+  <body>
+    
     <%= yield %>
+      <div class="progress">
+          <div class="indeterminate"></div>
+      </div>
+    
+    <div class="fixed-action-btn horizontal">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">+</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red" href="/users/invitation"><i class="material-icons">지인 초대</i></a></li>
+        <li><a class="btn-floating yellow darken-1"><i class="material-icons">회원가입</i></a></li>
+        <li><a class="btn-floating green"><i class="material-icons">당원가입</i ></a></li>
+      </ul>
+    </div>
+    <div class="preloader-wrapper active" id="preload">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $( document ).ready(function() {
+        // hide spinner
+        $(".progress").hide();
+        // show spinner on AJAX start
+        $(document).ajaxStart(function(){
+          $(".progress").show();
+        });
+        // hide spinner on AJAX stop
+        $(document).ajaxStop(function(){
+          $(".progress").delay(3000).hide(0);
+        });
+      });
+    </script>
   </body>
+  
+  <footer class="page-footer indigo darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">설훈 의원실</h5>
+          <p class="grey-text text-lighten-4">더불어 민주당</p>
+        </div>
+        <!--<div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>-->
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2017 Copyright Han-Byul Kim
+      <a class="grey-text text-lighten-4 right"> | honor for DESCENT 5th</a>
+      </div>
+    </div>
+  </footer>
+    
 </html>

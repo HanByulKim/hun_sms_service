@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col s12">
+        <div class="card-panel teal">
+            <span class="white-text">국회의원 설훈의 만만한 블로그.
+            </span>
+            <br>
+            <span class="white-text">놀러오세요~
+            </span>
+            <br>
+            <span class="orange-text">
+                <a href="http://blog.naver.com/sulhoon21">블로그 가기</a>
+            </span>
+        </div>
+    </div>
+</div>
+
+<% @titles.each_with_index do |blog,i| %>
+    <div class="col s12 m7">
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="<%=@img[i]%>">        
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <h5><%=blog%></h5>
+                    <p><%=@subtitles[i]%></p>
+                    <p><%=@mainview[i]%></p>
+                </div>
+                <div class="card-action">
+                    <a href="http://blog.naver.com/PostList.nhn?from=postList&blogId=sulhoon21&currentPage=<%=i+1%>">글 보러가기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

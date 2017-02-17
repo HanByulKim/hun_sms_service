@@ -7,4 +7,8 @@ class UsersController < ApplicationController
                 name: params[:name], job: params[:job], phone: params[:phone])
     redirect_to '/'
   end
+  
+  def invitation
+    
+  end
 end

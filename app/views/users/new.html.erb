@@ -1,5 +1,31 @@
 <h1>Sign Up</h1>
 <%= form_tag users_path do %>
+
+    <div class="input-field col s6">
+      <input placeholder="E-MAIL" id="first_name" type="email" class="validate" name="email">
+      <label for="E-MAIL">E-MAIL</label>
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="PASSWORD" id="first_name" type="password" class="validate" name="password">
+      <label for="PASSWORD">PASSWORD</label>
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="PASSWORD CONFIRMATION" id="first_name" type="password" class="validate" name="password_confirmation">
+      <label for="PASSWORD CONFIRMATION">PASSWORD CONFIRMATION</label>
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="NAME" id="first_name" type="text" class="validate" name="name">
+      <label for="NAME">NAME</label>
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="JOB" id="first_name" type="text" class="validate" name="job">
+      <label for="JOB">JOB</label>
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="PHONE" id="first_name" type="text" class="validate" name="phone">
+      <label for="PHONE">PHONE</label>
+    </div>
+    <!--
     Email :
     <input type="email" name="email"><br>
     Password :
@@ -12,6 +38,6 @@
     <input type="text" name="job"><br>
     Phone :
     <input type="text" name="phone"><br>
-    
+    -->
     <input type="submit" value="Sign up">
 <% end %>

@@ -9,10 +9,10 @@ class TmController < ApplicationController
     from = ENV['BASE_NUM']
     friends = {'+821065101264' => "HBK"}
     
-    #frineds.each do |key, value|
+    #frineds.each do |key, value| 
       message = @client.account.messages.create(
         :from=> from,
-        :to=> '+821031282001',
+        :to=> '+821065101264',
         :body=> "Hi"
       )
       puts "Sent message" 
