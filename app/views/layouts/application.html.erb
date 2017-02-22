@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
   <style>
-    /*body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-  
-    main {
-      flex: 1 0 auto;
-    }*/
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
 
   </style>
     
   <head>
-    <title>Workspace</title>
+    <title>설훈 의원실</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -90,6 +90,10 @@
       
       <li><a class="subheader">Subheader</a></li>
       <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+      <div class="chip" href="<%=ENV['DEV_ID']%>">
+        <img src="<%=ENV['DEV_IMG']%>" alt="Contact Person">
+        Han-Byul Kim
+      </div>
     </ul>
     
     <script>
@@ -101,103 +105,110 @@
   </head>
   
   <body>
+    <header>
+      
+    </header>
     
-    <%= yield %>
-      <div class="progress">
-          <div class="indeterminate"></div>
+    <main>
+      <%= yield %>
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+      
+      <div class="fixed-action-btn horizontal">
+        <a class="btn-floating btn-large red">
+          <i class="large material-icons">+</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating red" href="/users/invitation"><i class="material-icons">지인 초대</i></a></li>
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">회원가입</i></a></li>
+          <li><a class="btn-floating green"><i class="material-icons">당원가입</i ></a></li>
+        </ul>
       </div>
+      <div class="preloader-wrapper active" id="preload">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+  
+        <div class="spinner-layer spinner-red">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+  
+        <div class="spinner-layer spinner-yellow">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+  
+        <div class="spinner-layer spinner-green">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+      <script>
+        $( document ).ready(function() {
+          // hide spinner
+          $(".progress").hide();
+          // show spinner on AJAX start
+          $(document).ajaxStart(function(){
+            $(".progress").show();
+          });
+          // hide spinner on AJAX stop
+          $(document).ajaxStop(function(){
+            $(".progress").delay(3000).hide(0);
+          });
+        });
+      </script>
+    </main>
     
-    <div class="fixed-action-btn horizontal">
-      <a class="btn-floating btn-large red">
-        <i class="large material-icons">+</i>
-      </a>
-      <ul>
-        <li><a class="btn-floating red" href="/users/invitation"><i class="material-icons">지인 초대</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">회원가입</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">당원가입</i ></a></li>
-      </ul>
-    </div>
-    <div class="preloader-wrapper active" id="preload">
-      <div class="spinner-layer spinner-blue">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
+    <footer class="page-footer indigo darken-1">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">설훈 의원실</h5>
+            <p class="grey-text text-lighten-4">더불어 민주당</p>
+          </div>
+          <!--<div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>-->
         </div>
       </div>
-
-      <div class="spinner-layer spinner-red">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
+      <div class="footer-copyright">
+        <div class="container">
+        <a class="grey-text text-lighten-4 left" href="<%=ENV['DEV_ID']%>">© 2017 Copyright Han-Byul Kim</a><iframe src="//www.facebook.com/plugins/follow?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100002353530740&amp;layout=standard&amp;show_faces=true&amp;colorscheme=light&amp;width=60&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:60px; height:20px;" allowTransparency="true"></iframe>
+        <a class="grey-text text-lighten-4 right" href="<%=ENV['DEV_ID']%>"> | honor for DESCENT 5th</a>
         </div>
       </div>
-
-      <div class="spinner-layer spinner-yellow">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer spinner-green">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
-    <script>
-      $( document ).ready(function() {
-        // hide spinner
-        $(".progress").hide();
-        // show spinner on AJAX start
-        $(document).ajaxStart(function(){
-          $(".progress").show();
-        });
-        // hide spinner on AJAX stop
-        $(document).ajaxStop(function(){
-          $(".progress").delay(3000).hide(0);
-        });
-      });
-    </script>
+    </footer>
   </body>
   
-  <footer class="page-footer indigo darken-1">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">설훈 의원실</h5>
-          <p class="grey-text text-lighten-4">더불어 민주당</p>
-        </div>
-        <!--<div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-          </ul>
-        </div>-->
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      © 2017 Copyright Han-Byul Kim
-      <a class="grey-text text-lighten-4 right"> | honor for DESCENT 5th</a>
-      </div>
-    </div>
-  </footer>
+
     
 </html>

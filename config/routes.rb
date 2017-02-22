@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/admin/register' => 'admin#register'
   get '/admin/publicity' => 'admin#publicity'
   get '/admin/publicity_new' => 'admin#publicity_new'
+  get '/admin/publicity/history' => 'admin#publicity_history'
   get '/admin/admin_enrollment' => 'admin#admin_enrollment'
   post '/admin/admin_enrollment/create' => 'admin#admin_enrollment_create'
   post '/admin/create' => 'admin#create'

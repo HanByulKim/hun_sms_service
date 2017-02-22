@@ -1,0 +1,25 @@
+<head>
+  <nav>
+    <div class="nav-wrapper cyan darken-1">
+      <div class="col s12">
+        <a href="#!" class="breadcrumb" style="padding-left:10px;">Sudo</a>
+        <a href="/admin" class="breadcrumb">AdminPanel</a>
+        <a href="/admin/publicity/history" class="breadcrumb">PublicityHistory</a>
+      </div>
+    </div>
+  </nav>
+</head>
+
+
+<ul class="collection">
+    <% @history.each_with_index do |his,i| %>
+        <li class="collection-item avatar">
+            <i class="material-icons circle red">play_arrow</i>
+            <span class="title">sender : <%=User.find(his.sender).name%></span>
+            <p><%=his.created_at%> <br>
+               <%=his.script%>
+            </p>
+            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+    <% end %>
+</ul>

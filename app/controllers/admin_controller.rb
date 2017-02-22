@@ -75,6 +75,12 @@ class AdminController < ApplicationController
       puts "Sent message" 
     end
     
+    HistoryText.create(script: params[:script], sender: params[:sender])
+    
     redirect_to '/admin'
+  end
+  
+  def publicity_history
+    @history = HistoryText.all.reverse
   end
 end
