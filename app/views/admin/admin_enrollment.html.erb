@@ -1,0 +1,16 @@
+<head>
+  <nav>
+    <div class="nav-wrapper cyan darken-1">
+      <div class="col s12">
+        <a href="#!" class="breadcrumb">Sudo</a>
+        <a href="/admin" class="breadcrumb">AdminPanel</a>
+        <a href="/admin/admin_enrollment" class="breadcrumb">AdminEnrollment</a>
+      </div>
+    </div>
+  </nav>
+</head>
+
+<%= form_tag '/admin/admin_enrollment/create', method: 'post' do %>
+    <p>이메일</p><input type="text" name="email"><br>
+    <input type="submit">
+<% end %>

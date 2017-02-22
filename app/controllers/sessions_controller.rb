@@ -19,4 +19,7 @@ class SessionsController < ApplicationController
     
     redirect_to '/'
   end
+  
+  def error
+  end
 end

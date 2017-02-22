@@ -1,0 +1,38 @@
+<head>
+  <nav>
+    <div class="nav-wrapper cyan darken-1">
+      <div class="col s12">
+        <a href="#!" class="breadcrumb">Sudo</a>
+        <a href="/admin" class="breadcrumb">AdminPanel</a>
+        <a href="/admin/session_list" class="breadcrumb">SessionList</a>
+      </div>
+    </div>
+  </nav>
+</head>
+
+<table border="1" summary="리스트">
+    <caption>리스트</caption>
+    <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">직책</th>
+            <th scope="col">전화번호</th>
+            <th scope="col">이메일</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="4">hbk</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <% @member.each do |member| %>
+            <tr>
+                <th scope="row"><%= member.name %></th>
+                <td><%= member.job %></td>
+                <td><%= member.phone %></td>
+                <td><%= member.email %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

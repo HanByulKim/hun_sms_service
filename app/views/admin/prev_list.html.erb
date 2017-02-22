@@ -1,28 +1,14 @@
-<%= form_tag '/enroll/create', method: 'post' do %>
-    <p>이름</p><input type="text" name="name"><br>
-    <p>휴대폰</p><input type="text" name="phone" value="+8210"><br>
-    <p>거주동</p><input type="text" name="residence"><br>
-    <p>선거구</p><input type="text" name="elec_constit"><br>
-    <p>지지분류</p><input type="text" name="support_ide"><br>
-    <p>연령대</p><input type="text" name="age"><br>
-    <p>성별</p><input type="text" name="sex"><br>
-    <p>인지도</p><input type="text" name="recog"><br>
-    <p>의정평가</p><input type="text" name="support_re"><br>
-    <p>재지지 의향</p><input type="text" name="par_eval"><br>
-    <p>국정지지도</p><input type="text" name="support_gov"><br>
-    <p>정당지지도</p><input type="text" name="support_party"><br>
-    <p>경기지사</p><input type="text" name="governer"><br>
-    <p>직책</p><input type="text" name="position"><br>
-    <p>직업</p><input type="text" name="job"><br>
-    <p>일반번호</p><input type="text" name="homenum"><br>
-    <p>직장번호</p><input type="text" name="compnum"><br>
-    <p>이메일</p><input type="text" name="email"><br>
-    <p>추천인</p><input type="text" name="recommender"><br>
-    <p>출신지역</p><input type="text" name="native"><br>
-    <p>생년월일</p><input type="text" name="birth"><br>
-    <p>당비당원분류</p><input type="text" name="partyfee"><br>
-    <input type="submit">
-<% end %>
+<head>
+  <nav>
+    <div class="nav-wrapper cyan darken-1">
+      <div class="col s12">
+        <a href="#!" class="breadcrumb">Sudo</a>
+        <a href="/admin" class="breadcrumb">AdminPanel</a>
+        <a href="/admin/prev_list" class="breadcrumb">PrevList</a>
+      </div>
+    </div>
+  </nav>
+</head>
 
 <table border="1" summary="리스트">
     <caption>리스트</caption>
@@ -200,32 +186,3 @@
         <% end %>
     </tbody>
 </table>
-<!--
-<style>
-
-table {
-  width: 80%;
-  margin: 0;
-  background: #FFFFFF;
-  border: 1px solid #333333;
-  border-collapse: collapse;
-  table-layout:fixed;
-}
-td, th {
-  border-bottom: 1px solid #333333;    
-  text-align: center;
-  word-break:break-all;
-  white-space:pre-wrap
-}
-th {
-  background: #EEEEEE;
-}
-caption {
-  background: #E0E0E0;
-  margin: 0;
-  border: 1px solid #333333;
-  border-bottom: none;
-  padding: 6px 16px;
-  font-weight: bold;
-}
-</style>-->

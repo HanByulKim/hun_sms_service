@@ -1,0 +1,47 @@
+<head>
+  <nav>
+    <div class="nav-wrapper cyan darken-1">
+      <div class="col s12">
+        <a href="#!" class="breadcrumb">Sudo</a>
+        <a href="/admin" class="breadcrumb">AdminPanel</a>
+        <a href="/admin/admin_list" class="breadcrumb">AdminList</a>
+      </div>
+    </div>
+  </nav>
+</head>
+
+<table border="1" summary="리스트">
+    <caption>리스트</caption>
+    <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">직책</th>
+            <th scope="col">전화번호</th>
+            <th scope="col">이메일</th>
+            <th scope="col">Status</th>
+            <th scope="col">관리자 삭제</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="4">hbk</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <% @member.each do |member| %>
+            <tr>
+                <th scope="row"><%= member.name %></th>
+                <td><%= member.job %></td>
+                <td><%= member.phone %></td>
+                <td><%= member.email %></td>
+                <td><%= member.admin %></td>
+                <td>
+                    <%= form_tag '/admin/delete', method: 'post' do %>
+                        <input type="hidden" value="<%= member.id %>" name="uid">
+                        <input type="submit">
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

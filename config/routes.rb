@@ -6,13 +6,26 @@ Rails.application.routes.draw do
   root 'main#index'
   post '/sendtest' => 'tm#sendtest'
   post '/send' => 'tm#trigger_sms_alerts'
-  get '/enroll' => 'enroll#register'
-  post '/enroll/create' => 'enroll#create'
+  
+  get '/admin' => 'admin#panel'
+  get '/admin/prev_list' => 'admin#prev_list'
+  get '/admin/session_list' => 'admin#session_list'     
+  get '/admin/admin_list' => 'admin#admin_list'
+  get '/admin/register' => 'admin#register'
+  get '/admin/publicity' => 'admin#publicity'
+  get '/admin/publicity_new' => 'admin#publicity_new'
+  get '/admin/admin_enrollment' => 'admin#admin_enrollment'
+  post '/admin/admin_enrollment/create' => 'admin#admin_enrollment_create'
+  post '/admin/create' => 'admin#create'
+  post '/admin/delete' => 'admin#delete'
+  post '/admin/publicity/sendtext' => 'admin#sendtext'
   
   get '/video/index' => 'video#index'
   get '/news/index' => 'news#newsindex'
   get '/blog/index' => 'news#blogindex'
   get '/users/invitation' => 'users#invitation'
+  
+  get '/error' => 'sessions#error'
   # get '/' => 'tm#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

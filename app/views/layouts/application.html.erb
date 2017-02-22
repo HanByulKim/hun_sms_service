@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <style>
-    body {
+    /*body {
       display: flex;
       min-height: 100vh;
       flex-direction: column;
@@ -9,7 +9,8 @@
   
     main {
       flex: 1 0 auto;
-    }
+    }*/
+
   </style>
     
   <head>
@@ -28,6 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
     <!-- NAV AND SIDENAV -->
+    <!-- NAV -->
     <nav class="indigo darken-1">
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
       <div class="nav-wrapper">
@@ -36,7 +38,7 @@
           <% if user_signed_in? %><!-- 관리자만의 탭 입력 -->
             <% if current_user.admin %>
               <li><a href=""><%= current_user.name %> <%= current_user.job %> 님</a></li>
-              <li><%= link_to 'Admin', video_index_path %></li>
+              <li><%= link_to 'Admin', admin_path %></li>
             <% else %>
               <li><a href=""><%= current_user.name %> 님</a></li>
             <% end %>
@@ -52,18 +54,40 @@
       </div>
     </nav>
     
+    <!-- side NAV -->
     <ul id="slide-out" class="side-nav">
-      <li><div class="userView">
-        <div class="background">
-          <img src="images/office.jpg">
-        </div>
-        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-        <a href="#!name"><span class="white-text name">John Doe</span></a>
-        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-      </div></li>
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <% if user_signed_in? %><!-- 관리자만의 탭 입력 -->
+        <% if current_user.admin %>
+          <li><div class="userView">
+            <div class="background">
+              <img src="background.png">
+            </div>
+            <a href="#!user"><img class="circle" src="img_admin.png"></a>
+            <a href="#!name"><span class="black-text name"><%= current_user.name %> <%= current_user.job %> 님</span></a>
+            <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
+          </div></li>
+        <% else %>
+          <li><div class="userView">
+            <div class="background">
+              <img src="background.png">
+            </div>
+            <a href="#!user"><img class="circle" src="img_user.png"></a>
+            <a href="#!name"><span class="black-text name"><%= current_user.name %> 님</span></a>
+            <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
+          </div></li>
+        <% end %>
+        <li class="item"><%= link_to 'Sign Out', session_path(current_user), method: 'delete' %></li>  <!--     session DELETE /sessions/:id(.:format) sessions#destroy -->
+      <% else %>
+        <li class="item"><%= link_to 'Sign In', new_session_path %></li>
+        <li class="item"><%= link_to 'Sign Up', new_user_path %></li>
+      <% end %>
+      
+      <% if user_signed_in? && current_user.admin %>
+        <li><a href="/admin"><i class="material-icons">cloud</i>Admin</a></li>
+      <% end %>
       <li><a href="#!">Second Link</a></li>
       <li><div class="divider"></div></li>
+      
       <li><a class="subheader">Subheader</a></li>
       <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     </ul>
