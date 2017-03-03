@@ -80,6 +80,16 @@ class AdminController < ApplicationController
     redirect_to '/admin'
   end
   
+  def video
+    
+  end
+  
+  def video_create
+    Video.create(title: params[:title], subtitle: params[:subtitle], videoid: params[:videoid], videolink: params[:videolink], publisher: params[:publisher])
+    
+    redirect_to '/admin/video'
+  end
+  
   def publicity_history
     @history = HistoryText.all.reverse
   end

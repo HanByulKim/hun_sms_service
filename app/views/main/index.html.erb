@@ -1,10 +1,77 @@
+<style>
+    #icon{
+        height: 90px;
+        width: 90px;
+    }
+    .imgbutton {
+        position: relative;
+        border: none;
+        font-size: 28px;
+        color: #FFFFFF;
+        width: 91px;
+        height: 91px;
+        text-align: center;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    
+    .imgbutton:after {
+        content: "";    
+        background: #808080;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s
+    }
+    
+    .imgbutton:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s
+    }
+</style>
+
 <body>
-    <%= flash[:alert] %>
+    <div class="row"><%= flash[:alert] %></div>
+    
+    <a href="http://www.facebook.com/" target="_blank"><img id="icon" src="icon_fb.png"></a>
+    <a href="http://www.band.us/" target="_blank"><img id="icon" src="icon_band.jpg"></a>
+    <a href="http://blog.naver.com/" target="_blank"><img id="icon" src="icon_blog.jpg"></a>
+    
+    <div class="row">
+        <div class="imgbutton">
+            <input id="icon" type="image" src="icon_fb.png" name="saveForm" class="btTxt submit" id="saveForm" value="&lt;a href=&quot;http://www.facebook.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.facebook.com/rsrc.php/v3/yx/r/pyNVUg5EM0j.png&quot; border=&quot;0&quot; alt=&quot;facebook.com&quot;&gt;&lt;/a&gt;"/>
+        </div>
+        <div class="imgbutton">
+            <input id="icon" type="image" src="icon_blog.jpg" name="saveForm" class="btTxt submit" id="saveForm" />
+        </div>
+        <div class="imgbutton">
+            <input id="icon" type="image" src="icon_band.jpg" name="saveForm" class="btTxt submit" id="saveForm" />
+        </div>
+    </div>
     
     <%= link_to "비디오", controller: "video", action: "index" %>
     <%= link_to "언론활동", controller: "news", action: "newsindex" %>
     <%= link_to "블로그", controller: "news", action: "blogindex" %>
     <%= link_to "facebook", "http://www.facebook.com" %>
     <%= link_to "Band", "http://www.band.us" %>
+    
+    <iframe src="//www.facebook.com/plugins/follow?href=https%3A%2F%2Fwww.facebook.com%2Fsulhoon&amp;layout=standard&amp;show_faces=true&amp;colorscheme=light&amp;width=450&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
 
+<form><input type="image" src="icon_fb.png" id="imageButton" onClick="autofill();return false;"/></form>
+<style>
+    .myInput { background:url(path/to/img.jpg) 5px 5px no-repeat; }
+</style>
+<div class="inputContainer">
+    <input class="myInput" type="text" name="myInput" id="myInput" />
+    <a href="http://www.facebook.com" class="inputImg"><img src="icon_fb.png" /></a>
+</div>
 </body>

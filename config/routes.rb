@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :products, only: [:index]
 
   root 'main#index'
   post '/sendtest' => 'tm#sendtest'
@@ -20,8 +21,11 @@ Rails.application.routes.draw do
   post '/admin/create' => 'admin#create'
   post '/admin/delete' => 'admin#delete'
   post '/admin/publicity/sendtext' => 'admin#sendtext'
+  get '/admin/video' => 'admin#video'
+  post '/admin/video/create' => 'admin#video_create'
   
   get '/video/index' => 'video#index'
+  get '/video/player' => 'video#player'
   get '/news/index' => 'news#newsindex'
   get '/blog/index' => 'news#blogindex'
   get '/users/invitation' => 'users#invitation'

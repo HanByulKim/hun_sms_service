@@ -11,11 +11,11 @@ class NewsController < ApplicationController
         @titles << doc.css('.htitle').css('span')[0].text
         @subtitles << doc.css('.view').css('p')[0].text
         @mainview << doc.css('.view').css('p')[1].text
-        doc = doc.css('._photoImage').css('img')[0]
-        if doc['src'] != nil
-            doc = doc['src']
-        end
-        @img << doc
+        #doc = doc.css('._photoImage').css('img')[0]
+        #if doc['src'] != nil
+        #    doc = doc['src']
+        #end
+        #@img << doc
         doc = Nokogiri::HTML(open("http://blog.naver.com/PostList.nhn?from=postList&blogId=sulhoon21&currentPage=2"),nil,'euc-kr')
         @titles << doc.css('.htitle').css('span')[0].text
         @subtitles << doc.css('.view').css('p')[0].text

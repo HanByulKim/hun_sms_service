@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222163506) do
+ActiveRecord::Schema.define(version: 20170228132129) do
 
   create_table "history_texts", force: :cascade do |t|
     t.string   "script"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20170222163506) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "admin",           default: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "videoid"
+    t.string   "videolink"
+    t.integer  "publisher"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
