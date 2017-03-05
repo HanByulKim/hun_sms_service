@@ -1,0 +1,30 @@
+<body>
+    <style>
+        img{
+            width:70%;
+        }
+    </style>
+  <div class="row">
+    <div class="row">
+      <strong>
+        <a style="color:blue;">기사</a>
+      </strong>
+    </div>
+    <div class="row">
+      <h4><%=@article.title%></h4>
+    </div>
+    <div class="row">
+      <h6><%=@article.subtitle%></h6>
+    </div>
+    <div class="row">
+        <img src="<%=@article.imgurl%>">
+    </div>
+    <div class="row">
+      <h8><%=@article.posted%></h8>
+    </div>
+  </div>
+  
+  <div class="row">
+      <%=@article.script%>
+  </div>
+</body>

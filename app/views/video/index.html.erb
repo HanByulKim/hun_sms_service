@@ -1,5 +1,4 @@
-<head>
-</head>
+
 <body>
   <% @video.each_with_index do |video,i| %>
     <a href="/video/player?id=<%=video.id%>">
@@ -21,9 +20,9 @@
       </div>
     </a>
   <% end %>
-  <%= will_paginate @video %>
   
-  <div id="pagination-long">
+  <%= will_paginate @video %>
+  <!--
     <ul class="pagination">
       <li class="left"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
       
@@ -35,27 +34,5 @@
       
       <li class="right"><a href="/video/index?page=2"><i class="material-icons">chevron_right</i></a></li>
     </ul>
-  </div>
-  <script>
-    
-    $(function() {
-        $('#pagination-long').materializePagination({
-            useUrlParameter: false,
-            align: 'center',
-            lastPage: 100,
-        });
-        $('#pagination-short').materializePagination({
-            useUrlParameter: false,
-            align: 'center',
-            lastPage: 3,
-        });
-		  $('#pagination-middle').materializePagination({
-            useUrlParameter: false,
-            align: 'center',
-            lastPage: 50,
-        });
-    });
-
-  </script>
-  <script src="materialize-pagination.min.js"></script>
+    -->
 </body>

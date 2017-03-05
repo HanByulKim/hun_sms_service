@@ -1,0 +1,56 @@
+<head>
+  <nav>
+    <div class="nav-wrapper cyan darken-1">
+      <div class="col s12">
+        <a href="#!" class="breadcrumb" style="padding-left:10px;">Sudo</a>
+        <a href="/admin" class="breadcrumb">AdminPanel</a>
+        <a href="/admin/news" class="breadcrumb">News</a>
+      </div>
+    </div>
+  </nav>
+</head>
+
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+
+<%= form_tag '/admin/news/create', method: 'post' do %>
+    <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="TITLE" id="first_name" type="text" class="validate" name="title">
+          <label for="TITLE">TITLE</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="SUBTITLE" id="first_name" type="text" class="validate" name="subtitle">
+          <label for="SUBTITLE">SUBTITLE</label>
+        </div>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">mode_edit</i>
+              <textarea id="icon_prefix2" class="materialize-textarea" type="text" name="script"></textarea>
+              <label for="icon_prefix2">기사 내용</label>
+            </div>
+          </div>
+        </form>
+        <div class="input-field col s6">
+          <input placeholder="POSTED_DATE" type="date" class="datepicker" name="posted">
+          <label for="POSTED_DATE">POSTED_DATE</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="IMAGE_URL" id="first_name" type="text" class="validate" name="imgurl">
+          <label for="IMAGE_URL">IMAGE_URL</label>
+        </div>
+        
+        <input type="hidden" name="publisher" value="<%=current_user.id%>">
+        <input type="submit">
+    </div>
+<% end %>
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+</script>

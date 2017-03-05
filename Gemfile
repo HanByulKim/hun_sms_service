@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'kaminari'
 gem 'will_paginate', '~> 3.0'
 gem 'nokogiri'
 gem 'materialize-sass'
