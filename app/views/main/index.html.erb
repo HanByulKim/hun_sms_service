@@ -42,42 +42,80 @@
         background-repeat:no-repeat;
         background-size:100%;
     }
+    #main_buttonfield{
+        background-image: url("bg_02.png");
+        background-repeat:no-repeat;
+        background-size:100%;
+    }
     a{ /* imagebutton inline-block */
         display: inline-block;
     }
 </style>
 
 <body>
-    <div class="row"><%= flash[:alert] %></div>
+    <div class="row"><img src="bg_01.png" style="width:100%;"></div>
+    <!--<div class="row"></%= flash[:alert] %></div>
     
     <a href="http://www.facebook.com/"><img id="icon" src="icon_fb.png"></a>
     <a href="http://www.band.us/"><img id="icon" src="icon_band.jpg"></a>
     <a href="/blog/index"><img id="icon" src="icon_blog.jpg"></a>
-    
-    <div class="row">
-        <a href="http://www.facebook.com/">
-            <div class="imgbutton">
-                <input id="icon" type="image" src="icon_fb.png" name="saveForm" class="btTxt submit" id="saveForm" value="&lt;a href=&quot;http://www.facebook.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.facebook.com/rsrc.php/v3/yx/r/pyNVUg5EM0j.png&quot; border=&quot;0&quot; alt=&quot;facebook.com&quot;&gt;&lt;/a&gt;"/>
+    -->
+    <div class="row" id="main_buttonfield">
+        <div class="row container">
+            <div class="col s4">
+                <a href="http://www.facebook.com/">
+                    <div class="imgbutton">
+                        <input id="icon" type="image" src="icon_fb.png" name="saveForm" class="btTxt submit" id="saveForm" value="&lt;a href=&quot;http://www.facebook.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.facebook.com/rsrc.php/v3/yx/r/pyNVUg5EM0j.png&quot; border=&quot;0&quot; alt=&quot;facebook.com&quot;&gt;&lt;/a&gt;"/>
+                    </div>
+                </a>
             </div>
-        </a>
-        <a href="/blog/index">
-            <div class="imgbutton">
-                <input id="icon" type="image" src="icon_blog.jpg" name="saveForm" class="btTxt submit" id="saveForm" />
+            <div class="col s4">
+                <a href="/blog/index">
+                    <div class="imgbutton">
+                        <input id="icon" type="image" src="icon_blog.jpg" name="saveForm" class="btTxt submit" id="saveForm" />
+                    </div>
+                </a>
             </div>
-        </a>
-        <a href="http://www.band.us/">
-            <div class="imgbutton">
-                <input id="icon" type="image" src="icon_band.jpg" name="saveForm" class="btTxt submit" id="saveForm" />
+            <div class="col s4">
+                <a href="http://www.band.us/">
+                    <div class="imgbutton">
+                        <input id="icon" type="image" src="icon_band.jpg" name="saveForm" class="btTxt submit" id="saveForm" />
+                    </div>
+                </a>
             </div>
-        </a>
+        </div>
+        
+        <div class="row container">
+            <div class="col s4">
+                <a href="/video/index">
+                    <div class="imgbutton">
+                        <input id="icon" type="image" src="icon_video.png" name="saveForm" class="btTxt submit" id="saveForm"/>
+                    </div>
+                </a>
+            </div>
+            <div class="col s4">
+                <a href="/news/index">
+                    <div class="imgbutton">
+                        <input id="icon" type="image" src="icon_news.png" name="saveForm" class="btTxt submit" id="saveForm" />
+                    </div>
+                </a>
+            </div>
+            <div class="col s4">
+                <a href="http://www.band.us/">
+                    <div class="imgbutton">
+                        <input id="icon" type="image" src="icon_band.jpg" name="saveForm" class="btTxt submit" id="saveForm" />
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
     
-    <%= link_to "비디오", controller: "video", action: "index" %>
-    <%= link_to "언론활동", controller: "news", action: "newsindex" %>
-    <%= link_to "블로그", controller: "news", action: "blogindex" %>
     <iframe src="//www.facebook.com/plugins/follow?href=https%3A%2F%2Fwww.facebook.com%2Fsulhoon&amp;layout=standard&amp;show_faces=true&amp;colorscheme=light&amp;width=450&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
 
     <!--
+    </%= link_to "비디오", controller: "video", action: "index" %>
+    </%= link_to "언론활동", controller: "news", action: "newsindex" %>
+    </%= link_to "블로그", controller: "news", action: "blogindex" %>
     <form><input type="image" src="icon_fb.png" id="imageButton" onClick="autofill();return false;"/></form>
     <style>
         .myInput { background:url(path/to/img.jpg) 5px 5px no-repeat; }

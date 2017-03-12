@@ -38,7 +38,7 @@
                 <td>
                     <%= form_tag '/admin/delete', method: 'post' do %>
                         <input type="hidden" value="<%= member.id %>" name="uid">
-                        <input type="submit">
+                        <input type="submit" value="삭제">
                     <% end %>
                 </td>
             </tr>

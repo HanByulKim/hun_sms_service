@@ -1,24 +1,45 @@
-<p><%=@titles%></p>
-<p><%=@subtitles%></p>
-<p><%=@mainview%></p>
-<p><%=@img%></p>
-
+<style>
+    strong{
+        font-weight:bold;
+        font-size:16pt;
+        line-height:normal;
+    }
+</style>
 <% @titles.each_with_index do |blog,i| %>
+        <a href="http://blog.naver.com/PostList.nhn?from=postList&blogId=sulhoon21&currentPage=<%=i%>">
+          <div class="col s12 m7">
+            <div class="card horizontal" style="color:black;">
+                <div class="card-image">
+                  <img src="<%=@img[i]%>">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h6><strong><%=blog%></strong></h6>
+                        <p><%=@subtitles[i]%></p>
+                    </div>
+                    <div class="card-action">
+                        <i><%=@created[i]%></i>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </a>
+    <!--
     <div class="col s12 m7">
-        <div class="card horizontal">
+        <div class="card horizontal" style="color:black;">
             <div class="card-image">
-                <img src="<%=@img[i]%>">
+                <img src="</%=@img[i]%>">
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <h5><%=blog%></h5>
-                    <p><%=@subtitles[i]%></p>
-                    <p><%=@mainview[i]%></p>
+                    <h6><strong><%=blog%></strong></h6>
+                    <p></%=@subtitles[i]%></p>
+                    <p></%=@mainview[i]%></p>
                 </div>
                 <div class="card-action">
-                    <a href="http://www.naver.com">기사 보러가기</a>
+                    <a href="http://blog.naver.com/PostList.nhn?from=postList&blogId=sulhoon21&currentPage=<%=i%>">기사 보러가기</a>
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 <% end %>

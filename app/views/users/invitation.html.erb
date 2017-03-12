@@ -1,17 +1,41 @@
-<h1>Invitation</h1>
-<%= form_tag users_path do %>
-    Email :
-    <input type="email" name="email"><br>
-    Password :
-    <input type="password" name="password"><br>
-    Password Confirmation : 
-    <input type="password" name="password_confirmation"><br>
-    Name : 
-    <input type="text" name="name"><br>
-    Job :
-    <input type="text" name="job"><br>
-    Phone :
-    <input type="text" name="phone"><br>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     
-    <input type="submit" value="Sign up">
-<% end %>
+    <h1>Invitation</h1>
+</head>
+<body>
+    <%= form_tag '/users/invitation/sendtext', method: 'post' do %>
+        <div class="input-field col s6">
+          <input placeholder="NAME" id="first_name" type="text" class="validate" name="name">
+          <label for="NAME">NAME</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="PHONE" id="first_name" type="text" class="validate" name="phone">
+          <label for="PHONE">PHONE</label>
+        </div>
+            <div class="imgbutton">
+                <input id="icon" type="submit" src="icon_sms.png" name="saveForm" class="btTxt submit" id="saveForm" value="초대"/>
+            </div>
+        <input type="submit" value="초대">
+    <% end %>
+    
+    
+    
+    <a id="kakao-link-btn" href="javascript:sendLink()">
+        <img src="//dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+    </a>
+    
+    <script type='text/javascript'>
+        // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init("<%=ENV['KAKAO_JS']%>");
+        function sendLink() {
+          Kakao.Link.sendTalkLink({
+            label: '테스트용 메세지입니다.'
+          });
+        }
+    </script>
+</body>
+

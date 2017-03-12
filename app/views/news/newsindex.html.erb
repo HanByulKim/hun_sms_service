@@ -1,3 +1,10 @@
+<style>
+    strong{
+        font-weight:bold;
+        font-size:16pt;
+        line-height:normal;
+    }
+</style>
 <body>
     <div class="row">
         <div class="col s12">
@@ -18,13 +25,13 @@
     <% @news.each_with_index do |news,i| %>
         <a href="/news/article?id=<%=news.id%>">
           <div class="col s12 m7">
-            <div class="card horizontal">
+            <div class="card horizontal" style="color:black;">
                 <div class="card-image">
                   <img src="<%=news.imgurl%>">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <h5><%=news.title%></h5>
+                        <h6><strong><%=news.title%></strong></h6>
                         <p><%=news.subtitle%></p>
                     </div>
                     <div class="card-action">

@@ -23,8 +23,7 @@ Rails.application.routes.draw do
   post '/admin/publicity/sendtext' => 'admin#sendtext'
   get '/admin/video' => 'admin#video'
   post '/admin/video/create' => 'admin#video_create'
-  get '/admin/news' => 'admin#news'
-  post '/admin/news/create' => 'admin#news_create'
+  get '/admin/news' => 'admin@news'
   
   get '/video/index' => 'video#index'
   get '/video/player' => 'video#player'
@@ -32,6 +31,7 @@ Rails.application.routes.draw do
   get '/news/article' => 'news#article'
   get '/blog/index' => 'news#blogindex'
   get '/users/invitation' => 'users#invitation'
+  post '/users/invitation/sendtext' => 'users#invitation_sendtext'
   
   get '/error' => 'sessions#error'
   # get '/' => 'tm#index'

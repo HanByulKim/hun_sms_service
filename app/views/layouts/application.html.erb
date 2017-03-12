@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <style>
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+  
+    main {
+      flex: 1 0 auto;
+    }
 
   </style>
     
@@ -33,7 +33,7 @@
     <nav class="indigo darken-1">
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
       <div class="nav-wrapper">
-        <a href="/" class="brand-logo center">Logo</a>
+        <a href="/" class="brand-logo center"><img src="icon_main.png" style="width: 50px; padding-top: 3px;"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if user_signed_in? %><!-- 관리자만의 탭 입력 -->
             <% if current_user.admin %>
@@ -115,48 +115,6 @@
           <div class="indeterminate"></div>
       </div>
       
-      
-      <div class="preloader-wrapper active" id="preload">
-        <div class="spinner-layer spinner-blue">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-  
-        <div class="spinner-layer spinner-red">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-  
-        <div class="spinner-layer spinner-yellow">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-  
-        <div class="spinner-layer spinner-green">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-      </div>
       <script>
         $( document ).ready(function() {
           // hide spinner
@@ -177,7 +135,7 @@
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="white-text">설훈 의원실</h5>
+            <h5 class="white-text">국회의원 설훈</h5>
             <p class="grey-text text-lighten-4">더불어 민주당</p>
           </div>
           <!--<div class="col l4 offset-l2 s12">
