@@ -6,21 +6,6 @@
     }
 </style>
 <body>
-    <div class="row">
-        <div class="col s12">
-            <div class="card-panel teal">
-                <span class="white-text">국회의원 설훈의 만만한 블로그.
-                </span>
-                <br>
-                <span class="white-text">놀러오세요~
-                </span>
-                <br>
-                <span class="orange-text">
-                    <a href="http://blog.naver.com/sulhoon21">블로그 가기</a>
-                </span>
-            </div>
-        </div>
-    </div>
     
     <% @news.each_with_index do |news,i| %>
         <a href="/news/article?id=<%=news.id%>">
@@ -32,10 +17,9 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <h6><strong><%=news.title%></strong></h6>
-                        <p><%=news.subtitle%></p>
                     </div>
                     <div class="card-action">
-                        <i><%=news.posted%></i>
+                        <div style='width:200px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;'><nobr><%=news.subtitle%></nobr></div>
                     </div>
                 </div>
             </div>

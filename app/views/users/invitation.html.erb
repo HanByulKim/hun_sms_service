@@ -1,41 +1,69 @@
+<style>
+    #but_sign{
+        width:100%;
+        height:50px;
+        font-size:30px;
+        vertical-align:middle;
+    }
+    #sessions_top{
+      padding-top: 10px;
+        display: block;
+        margin: auto;
+        width: 60%;
+    }
+</style>
+
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     
-    <h1>Invitation</h1>
+    <div class="row container"><img id="sessions_top" src="/mark.png"></div>
 </head>
 <body>
     <%= form_tag '/users/invitation/sendtext', method: 'post' do %>
-        <div class="input-field col s6">
-          <input placeholder="NAME" id="first_name" type="text" class="validate" name="name">
-          <label for="NAME">NAME</label>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="PHONE" id="first_name" type="text" class="validate" name="phone">
-          <label for="PHONE">PHONE</label>
-        </div>
-            <div class="imgbutton">
-                <input id="icon" type="submit" src="icon_sms.png" name="saveForm" class="btTxt submit" id="saveForm" value="초대"/>
+    
+        <div class="row container">
+            <div class="input-field">
+              <input placeholder="이름" id="first_name" type="email" class="validate" name="name">
+              <label for="NAME">이름</label>
             </div>
-        <input type="submit" value="초대">
+        </div>
+        <div class="row container">
+            <div class="input-field">
+              <input placeholder="전화번호" id="first_name" type="password" class="validate" name="phone">
+              <label for="PHONE">전화번호</label>
+            </div>
+        </div>
+        <div class="row container">
+            <a class="waves-effect waves-light btn" id="but_sign"><input type="submit" value="">초대</a>
+        </div>
     <% end %>
-    
-    
     
     <a id="kakao-link-btn" href="javascript:sendLink()">
         <img src="//dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
     </a>
     
     <script type='text/javascript'>
-        // 사용할 앱의 JavaScript 키를 설정해 주세요.
-        Kakao.init("<%=ENV['KAKAO_JS']%>");
-        function sendLink() {
-          Kakao.Link.sendTalkLink({
-            label: '테스트용 메세지입니다.'
-          });
-        }
+        // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('<%=ENV['KAKAO_JS']%>');
+        // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+        Kakao.Link.createTalkLinkButton({
+          container: '#kakao-link-btn',
+          label: '카카오링크 샘플에 오신 것을 환영합니다.',
+          image: {
+            src: '/bg_02.png',
+            width: '300',
+            height: '200'
+          },
+          webButton: {
+            text: '카카오 디벨로퍼스',
+            url: '/'// 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+          }
+        });
     </script>
 </body>
+
+
 

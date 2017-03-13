@@ -10,11 +10,15 @@
     main {
       flex: 1 0 auto;
     }
-
+    
+    head, body {
+        font-family: "Nanum Gothic", sans-serif;
+    }
+    
   </style>
     
   <head>
-    <title>설훈 의원실</title>
+    <title>국회의원 설훈</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -28,12 +32,31 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
+    
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+    <script type="text/javascript">
+      WebFont.load({
+    
+        // For google fonts
+        google: {
+          families: ['Droid Sans', 'Droid Serif']
+        }
+        // For early access or custom font
+        custom: {
+            families: ['Nanum Gothic'],
+            urls: ['http://fonts.googleapis.com/earlyaccess/nanumgothic.css']
+        }
+    
+      });
+    </script>
+  
     <!-- NAV AND SIDENAV -->
     <!-- NAV -->
     <nav class="indigo darken-1">
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
       <div class="nav-wrapper">
-        <a href="/" class="brand-logo center"><img src="icon_main.png" style="width: 50px; padding-top: 3px;"></a>
+        <a href="/" class="brand-logo center"><img src="/icon_main.png" style="width: 50px; padding-top: 3px;"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if user_signed_in? %><!-- 관리자만의 탭 입력 -->
             <% if current_user.admin %>
@@ -53,39 +76,40 @@
         </ul>
       </div>
     </nav>
-    
+      
     <!-- side NAV -->
     <ul id="slide-out" class="side-nav">
       <% if user_signed_in? %><!-- 관리자만의 탭 입력 -->
         <% if current_user.admin %>
-          <li><div class="userView">
-            <div class="background">
-              <img src="background.png">
-            </div>
-            <a href="#!user"><img class="circle" src="img_admin.png"></a>
+          <li><div class="userView"><img src="/bg_02.png" style="width:100%;">
+            <a href="/admin"><img class="circle" src="/img_admin.png"></a>
             <a href="#!name"><span class="black-text name"><%= current_user.name %> <%= current_user.job %> 님</span></a>
             <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
           </div></li>
         <% else %>
           <li><div class="userView">
             <div class="background">
-              <img src="background.png">
+              <img src="/bg_02.png" style="width:100%;">
             </div>
-            <a href="#!user"><img class="circle" src="img_user.png"></a>
+            <a href="#!user"><img class="circle" src="/img_user.png"></a>
             <a href="#!name"><span class="black-text name"><%= current_user.name %> 님</span></a>
             <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
           </div></li>
         <% end %>
-        <li class="item"><%= link_to 'Sign Out', session_path(current_user), method: 'delete' %></li>  <!--     session DELETE /sessions/:id(.:format) sessions#destroy -->
+        <li><div class="divider"></div></li>
+        <li class="item"><%= link_to '로그아웃', session_path(current_user), method: 'delete' %></li>  <!--     session DELETE /sessions/:id(.:format) sessions#destroy -->
       <% else %>
-        <li class="item"><%= link_to 'Sign In', new_session_path %></li>
-        <li class="item"><%= link_to 'Sign Up', new_user_path %></li>
+        <li><div class="userView">
+              <img src="/bg_02.png" style="width:100%;">
+          </div>
+        </li>
+        <li class="item"><%= link_to '로그인', new_session_path %></li>
+        <li class="item"><%= link_to '회원가입', new_user_path %></li>
       <% end %>
       
       <% if user_signed_in? && current_user.admin %>
         <li><a href="/admin"><i class="material-icons">cloud</i>Admin</a></li>
       <% end %>
-      <li><a href="#!">Second Link</a></li>
       <li><div class="divider"></div></li>
       
       <li><a class="subheader">Subheader</a></li>
@@ -151,8 +175,8 @@
       </div>
       <div class="footer-copyright">
         <div class="container">
-        <a class="grey-text text-lighten-4 left" href="<%=ENV['DEV_ID']%>">© 2017 Copyright Han-Byul Kim</a><iframe src="//www.facebook.com/plugins/follow?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100002353530740&amp;layout=standard&amp;show_faces=true&amp;colorscheme=light&amp;width=60&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:60px; height:20px;" allowTransparency="true"></iframe>
-        <a class="grey-text text-lighten-4 right" href="<%=ENV['DEV_ID']%>"> | honor for DESCENT 5th</a>
+        <a class="grey-text text-lighten-4 left" href="<%=ENV['DEV_ID']%>">© 2017 Copyright Han-Byul Kim</a>
+        <a class="grey-text text-lighten-4 right" href="<%=ENV['DEV_ID']%>"> | honor for DECENT 5th</a>
         </div>
       </div>
     </footer>

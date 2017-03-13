@@ -17,32 +17,37 @@
 </script>
 
 <%= form_tag '/admin/news/create', method: 'post' do %>
-    <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="TITLE" id="first_name" type="text" class="validate" name="title">
-          <label for="TITLE">TITLE</label>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="SUBTITLE" id="first_name" type="text" class="validate" name="subtitle">
-          <label for="SUBTITLE">SUBTITLE</label>
-        </div>
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <i class="material-icons prefix">mode_edit</i>
-              <textarea id="icon_prefix2" class="materialize-textarea" type="text" name="script"></textarea>
-              <label for="icon_prefix2">기사 내용</label>
-            </div>
-          </div>
-        </form>
-        <div class="input-field col s6">
-          <input placeholder="POSTED_DATE" type="date" class="datepicker" name="posted">
-          <label for="POSTED_DATE">POSTED_DATE</label>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="IMAGE_URL" id="first_name" type="text" class="validate" name="imgurl">
-          <label for="IMAGE_URL">IMAGE_URL</label>
-        </div>
+  <div class="row container">
+    <div class="input-field">
+      <input placeholder="뉴스 제목" id="first_name" type="text" class="validate" name="title">
+      <label for="TITLE">뉴스 제목</label>
+    </div>
+  </div>
+  <div class="row container">
+    <div class="input-field">
+      <input placeholder="뉴스 부제목" id="first_name" type="text" class="validate" name="subtitle">
+      <label for="SUBTITLE">뉴스 부제목</label>
+    </div>
+  </div>
+  <div class="row container">
+    <div class="input-field">
+      <i class="material-icons prefix">mode_edit</i>
+      <textarea id="icon_prefix2" class="materialize-textarea" type="text" name="script"></textarea>
+      <label for="icon_prefix2">기사 내용</label>
+    </div>
+  </div>
+  <div class="row container">
+    <div class="input-field">
+      <input placeholder="POSTED_DATE" type="date" class="datepicker" name="posted">
+      <label for="POSTED_DATE">POSTED_DATE</label>
+    </div>
+  </div>
+  <div class="row container">
+    <div class="input-field">
+      <input placeholder="이미지 URL" id="first_name" type="text" class="validate" name="imgurl">
+      <label for="IMAGE_URL">이미지 URL</label>
+    </div>
+  </div>
         
         <input type="hidden" name="publisher" value="<%=current_user.id%>">
         <input type="submit">

@@ -7,27 +7,26 @@
         font-weight:bold;
       }
   </style>
-  <div class="row">
-    <div class="row">
+  <div class="row container">
+    <div class="row" id="article_classification">
       <strong>
         <a style="color:blue;">기사</a>
       </strong>
     </div>
-    <div class="row">
+    <div class="row" id="article_header">
       <h4><%=@article.title%></h4>
     </div>
-    <div class="row">
-      <h6><strong><%=@article.subtitle%></strong></h6>
-    </div>
-    <div class="row">
-        <img src="<%=@article.imgurl%>">
-    </div>
-    <div class="row">
+    <div class="row" id="article_date">
       <h8><%=@article.posted%></h8>
     </div>
-  </div>
-  
-  <div class="row">
-      <%=@article.script%>
+    <div class="row" id="article_subheader">
+      <h6><strong><%=@article.subtitle%></strong></h6>
+    </div>
+    <div class="row" id="article_img">
+        <img src="<%=@article.imgurl%>">
+    </div>
+    <div class="row" id="article_script">
+        <%=@article.script%>
+    </div>
   </div>
 </body>

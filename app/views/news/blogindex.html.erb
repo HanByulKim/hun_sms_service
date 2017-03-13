@@ -1,11 +1,28 @@
 <style>
+    #breadicon{
+        height:100%;
+    }
     strong{
         font-weight:bold;
         font-size:16pt;
         line-height:normal;
     }
 </style>
-<% @titles.each_with_index do |blog,i| %>
+
+<head>
+  <nav>
+    <div class="nav-wrapper green">
+        <div class="col s2">
+        </div>
+        <div class="col s10">
+            <a href="/blog/index" class="breadcrumb" style="padding-left:10px;">블로그</a>
+        </div>
+    </div>
+  </nav>
+</head>
+
+<body>
+    <% @titles.each_with_index do |blog,i| %>
         <a href="http://blog.naver.com/PostList.nhn?from=postList&blogId=sulhoon21&currentPage=<%=i%>">
           <div class="col s12 m7">
             <div class="card horizontal" style="color:black;">
@@ -15,31 +32,13 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <h6><strong><%=blog%></strong></h6>
-                        <p><%=@subtitles[i]%></p>
                     </div>
                     <div class="card-action">
-                        <i><%=@created[i]%></i>
+                        <div style='width:200px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;'><nobr><%=@subtitles[i]%></nobr></div>
                     </div>
                 </div>
             </div>
           </div>
         </a>
-    <!--
-    <div class="col s12 m7">
-        <div class="card horizontal" style="color:black;">
-            <div class="card-image">
-                <img src="</%=@img[i]%>">
-            </div>
-            <div class="card-stacked">
-                <div class="card-content">
-                    <h6><strong><%=blog%></strong></h6>
-                    <p></%=@subtitles[i]%></p>
-                    <p></%=@mainview[i]%></p>
-                </div>
-                <div class="card-action">
-                    <a href="http://blog.naver.com/PostList.nhn?from=postList&blogId=sulhoon21&currentPage=<%=i%>">기사 보러가기</a>
-                </div>
-            </div>
-        </div>
-    </div>-->
-<% end %>
+    <% end %>
+</body>

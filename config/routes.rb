@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/admin/video' => 'admin#video'
   post '/admin/video/create' => 'admin#video_create'
   get '/admin/news' => 'admin@news'
+  post '/admin/news/create' => 'admin#news_create'
   
   get '/video/index' => 'video#index'
   get '/video/player' => 'video#player'
