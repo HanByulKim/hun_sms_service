@@ -103,12 +103,16 @@
               <img src="/bg_02.png" style="width:100%;">
           </div>
         </li>
-        <li class="item"><%= link_to '로그인', new_session_path %></li>
-        <li class="item"><%= link_to '회원가입', new_user_path %></li>
+        <!--
+        <li class="item"></%= link_to '로그인', new_session_path %></li>
+        <li class="item"></%= link_to '회원가입', new_user_path %></li>
+        -->
+        <l><a class="waves-effect" href="/sessions/new">로그인</a></li>
+        <l><a class="waves-effect" href="/users/new">회원가입</a></li>
       <% end %>
       
       <% if user_signed_in? && current_user.admin %>
-        <li><a href="/admin"><i class="material-icons">cloud</i>Admin</a></li>
+        <li><a class="waves-effect" href="/admin"><i class="material-icons">cloud</i>Admin</a></li>
       <% end %>
       <li><div class="divider"></div></li>
       

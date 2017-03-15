@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post '/admin/admin_enrollment/create' => 'admin#admin_enrollment_create'
   post '/admin/create' => 'admin#create'
   post '/admin/delete' => 'admin#delete'
-  post '/admin/publicity/sendtext' => 'admin#sendtext'
+  post '/admin/publicity_new/sendtext' => 'admin#sendtext_user'
   get '/admin/video' => 'admin#video'
   post '/admin/video/create' => 'admin#video_create'
   get '/admin/news' => 'admin@news'

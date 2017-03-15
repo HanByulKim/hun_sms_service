@@ -1,3 +1,13 @@
+
+<style>
+  #but_sign{
+    width:100%;
+    height:50px;
+    font-size:30px;
+    vertical-align:middle;
+  }
+</style>
+
 <head>
   <nav>
     <div class="nav-wrapper cyan darken-1">
@@ -9,7 +19,6 @@
     </div>
   </nav>
 </head>
-
 <script>
   $(document).ready(function() {
     $('select').material_select();
@@ -17,30 +26,37 @@
 </script>
 
 <%= form_tag '/admin/video/create', method: 'post' do %>
-    <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="TITLE" id="first_name" type="text" class="validate" name="title">
-          <label for="TITLE">TITLE</label>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="SUBTITLE" id="first_name" type="text" class="validate" name="subtitle">
-          <label for="SUBTITLE">SUBTITLE</label>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="VIDEO_ID" id="first_name" type="text" class="validate" name="videoid">
-          <label for="VIDEO_ID">VIDEO_ID</label>
-        </div>
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <i class="material-icons prefix">mode_edit</i>
-              <textarea id="icon_prefix2" class="materialize-textarea" type="text" name="videolink"></textarea>
-              <label for="icon_prefix2">비디오 링크</label>
-            </div>
-          </div>
-        </form>
-        
-        <input type="hidden" name="publisher" value="<%=current_user.id%>">
-        <input type="submit">
+
+  <div class="row">
+    <div class="row container">
+      <div class="input-field">
+        <input placeholder="영상 제목" id="first_name" type="text" class="validate" name="title">
+        <label for="TITLE">영상 제목</label>
+      </div>
     </div>
+    <div class="row container">
+      <div class="input-field">
+        <input placeholder="영상 부제목" id="first_name" type="text" class="validate" name="subtitle">
+        <label for="SUBTITLE">영상 부제목</label>
+      </div>
+    </div>
+    <div class="row container">
+      <div class="input-field">
+        <input placeholder="VIDEO_ID" id="first_name" type="text" class="validate" name="videoid">
+        <label for="VIDEO_ID">VIDEO_ID</label>
+      </div>
+    </div>
+    <div class="row container">
+      <div class="input-field">
+        <i class="material-icons prefix">mode_edit</i>
+        <textarea id="icon_prefix2" class="materialize-textarea" type="text" name="videolink"></textarea>
+        <label for="icon_prefix2">비디오 링크</label>
+      </div>
+    </div>
+    
+    <input type="hidden" name="publisher" value="<%=current_user.id%>">
+    <div class="row container">
+        <input class="waves-effect waves-light btn" id="but_sign" type="submit" value="비디오 등록">
+    </div>
+  </div>
 <% end %>

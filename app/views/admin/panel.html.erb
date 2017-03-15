@@ -17,27 +17,132 @@
     #panel{
         text-align:center;
     }
+    #make_black{
+        color: black;
+    }
+    #header_pad{
+        padding-left:20px;
+    }
 </style>
 
 <body>
-    <div class="row"></div>
-    <div class="row" id="panel">
-        <a class="waves-effect waves-light btn-large" href="/admin/prev_list"><i class="material-icons left">contacts</i>기존 DB</a>
-        <a class="waves-effect waves-light btn-large" href="/admin/register"><i class="material-icons left">playlist_add</i>기존 DB 등록</a>
-        <a class="waves-effect waves-light btn-large" href="/admin/publicity"><i class="material-icons left">cloud</i>기존DB 홍보</a>
-        <a class="waves-effect waves-light btn-large"><i class="material-icons left">assignment_ind</i>초대현황</a>
-    </div>
-    <div class="row" id="panel">
-        <a class="waves-effect waves-light btn-large" href="/admin/admin_list"><i class="material-icons left">cloud</i>관리자현황</a>
-        <a class="waves-effect waves-light btn-large" href="/admin/admin_enrollment"><i class="material-icons left">cloud</i>관리자등록</a>
-        <a class="waves-effect waves-light btn-large" href="/admin/session_list"><i class="material-icons left">stars</i>가입자현황</a>
-        <a class="waves-effect waves-light btn-large" href="/admin/publicity_new"><i class="material-icons left">cloud</i>가입자 홍보</a>
+    <div class="row container">
+        <div class="col s6">
+            <ul class="collection">
+                <li class="collection-header" id="header_pad"><h4>기존 DB</h4></li>
+                <li class="collection-item"></li>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/prev_list">
+                  <i class="material-icons circle blue">contacts</i>
+                  <span class="title">기존 DB 조회</span>
+                  
+                  <p>총 <%=@mem%>명
+                  </p>
+                </a>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/register">
+                  <i class="material-icons circle green">playlist_add</i>
+                  <span class="title">기존 DB 등록</span>
+                  
+                  <p>관리 DB 등록
+                  </p>
+                </a>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/publicity">
+                  <i class="material-icons circle red">cloud</i>
+                  <span class="title">기존 DB 홍보</span>
+                  
+                  <p>기존 DB 문자, 카카오톡 전송
+                  </p>
+                </a>
+            </ul>
+        </div>
+    
+        <div class="col s6">
+            <ul class="collection">
+                <li class="collection-header" id="header_pad"><h4>가입자</h4></li>
+                <li class="collection-item"></li>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/session_list">
+                  <i class="material-icons circle blue">stars</i>
+                  <span class="title">가입자 현황</span>
+                  
+                  <p>총 <%=@usr%>명
+                  </p>
+                </a>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/publicity_new">
+                  <i class="material-icons circle green">cloud</i>
+                  <span class="title">가입자 홍보</span>
+                  
+                  <p>가입자 문자, 카카오톡 전송
+                  </p>
+                </a>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/publicity">
+                  <i class="material-icons circle red">assignment_ind</i>
+                  <span class="title">지인초대 현황</span>
+                  
+                  <p>지인 초대 DB 조회
+                  </p>
+                </a>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/publicity/history">
+                  <i class="material-icons circle">assignment_ind</i>
+                  <span class="title">가입자 홍보 기록</span>
+                  
+                  <p>총 <%=@pub%>건
+                  </p>
+                </a>
+            </ul>
+        </div>
     </div>
     
-    <div class="row" id="panel">
-        <a class="waves-effect waves-light btn-large" href="/admin/publicity/history"><i class="material-icons left">cloud</i>홍보 기록</a>
-        <a class="waves-effect waves-light btn-large" href="/admin/video"><i class="material-icons left">cloud</i>영상</a>
-        <a class="waves-effect waves-light btn-large" href="/admin/news"><i class="material-icons left">stars</i>뉴스</a>
-        <a class="waves-effect waves-light btn-large" href="/admin/publicity_new"><i class="material-icons left">cloud</i></a>
+    <div class="row container">
+        <div class="col s6">
+            <ul class="collection">
+                <li class="collection-header" id="header_pad"><h4>게시물 등록</h4></li>
+                <li class="collection-item"></li>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/video">
+                  <i class="material-icons circle blue">cloud</i>
+                  <span class="title">영상 등록</span>
+                  
+                  <p>총 <%=@vid%>건
+                  </p>
+                </a>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/news">
+                  <i class="material-icons circle green">stars</i>
+                  <span class="title">뉴스 등록</span>
+                  
+                  <p>총 <%=@new%>건
+                  </p>
+                </a>
+            </ul>
+        </div>
+    
+        <div class="col s6">
+            <ul class="collection">
+                <li class="collection-header" id="header_pad"><h4>관리자</h4></li>
+                <li class="collection-item"></li>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/admin_list">
+                  <i class="material-icons circle blue">cloud</i>
+                  <span class="title">관리자 현황</span>
+                  
+                  <p>총 <%=@adm%>명
+                  </p>
+                </a>
+                
+                <a class="collection-item avatar" id="make_black" href="/admin/admin_enrollment">
+                  <i class="material-icons circle green">stars</i>
+                  <span class="title">관리자 등록</span>
+                  
+                  <p>이메일 주소로 등록
+                  </p>
+                </a>
+            </ul>
+        </div>
     </div>
 </body>

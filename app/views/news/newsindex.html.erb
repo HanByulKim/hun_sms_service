@@ -4,22 +4,40 @@
         font-size:16pt;
         line-height:normal;
     }
+    strong_sub{
+        font-weight:bold;
+        font-size:13pt;
+        line-height:normal;
+    }
 </style>
+
+<head>
+  <nav>
+    <div class="nav-wrapper blue accent-3">
+        <div class="col s2">
+        </div>
+        <div class="col s10">
+            <a href="/blog/index" class="breadcrumb" style="padding-left:10px;"><strong_sub>언론활동</strong_sub></a>
+        </div>
+    </div>
+  </nav>
+</head>
+
 <body>
     
     <% @news.each_with_index do |news,i| %>
         <a href="/news/article?id=<%=news.id%>">
           <div class="col s12 m7">
             <div class="card horizontal" style="color:black;">
-                <div class="card-image">
-                  <img src="<%=news.imgurl%>">
+                <div class="card-image" style="width:38%;">
+                  <img src="<%=news.imgurl%>" style="width:100%;">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
                         <h6><strong><%=news.title%></strong></h6>
                     </div>
                     <div class="card-action">
-                        <div style='width:200px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;'><nobr><%=news.subtitle%></nobr></div>
+                        <div style='width:190px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;'><nobr><%=news.subtitle%></nobr></div>
                     </div>
                 </div>
             </div>

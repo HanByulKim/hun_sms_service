@@ -1,3 +1,12 @@
+<style>
+  #but_sign{
+      width:100%;
+      height:50px;
+      font-size:30px;
+      vertical-align:middle;
+  }
+</style>
+
 <head>
   <nav>
     <div class="nav-wrapper cyan darken-1">
@@ -49,9 +58,11 @@
     </div>
   </div>
         
-        <input type="hidden" name="publisher" value="<%=current_user.id%>">
-        <input type="submit">
-    </div>
+  <input type="hidden" name="publisher" value="<%=current_user.id%>">
+  
+  <div class="row container">
+      <input class="waves-effect waves-light btn" id="but_sign" type="submit" value="뉴스 등록">
+  </div>
 <% end %>
 <script>
     $('.datepicker').pickadate({

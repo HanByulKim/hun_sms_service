@@ -1,3 +1,28 @@
+<style>
+    strong{
+        font-weight:bold;
+        font-size:16pt;
+        line-height:normal;
+    }
+    strong_sub{
+        font-weight:bold;
+        font-size:13pt;
+        line-height:normal;
+    }
+</style>
+
+<head>
+  <nav>
+    <div class="nav-wrapper red darken-1">
+        <div class="col s2">
+        </div>
+        <div class="col s10">
+            <a href="/blog/index" class="breadcrumb" style="padding-left:10px;"><strong_sub>영상</strong_sub></a>
+        </div>
+    </div>
+  </nav>
+</head>
+
 <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -7,16 +32,15 @@
     <a href="/video/player?id=<%=video.id%>">
       <div class="col s12 m7">
         <div class="card horizontal">
-            <div class="card-image">
-              <img src="http://img.youtube.com/vi/<%=video.videoid%>/1.jpg">
+            <div class="card-image" style="width:38%;">
+              <img src="http://img.youtube.com/vi/<%=video.videoid%>/1.jpg" style="width:100%;">
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <h5><%=video.title%></h5>
-                    <p><%=video.subtitle%></p>
+                      <h6><strong><%=video.title%></strong></h6>
                 </div>
                 <div class="card-action">
-                    <i><%=video.created_at%></i>
+                    <div style='width:190px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;'><nobr><%=video.subtitle%></nobr></div>
                 </div>
             </div>
         </div>

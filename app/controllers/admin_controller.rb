@@ -3,7 +3,12 @@ class AdminController < ApplicationController
   before_action :authenticate_admin#, only: [:sendtest]
   
   def panel
-    
+    @mem = Member.count
+    @usr = User.count
+    @pub = HistoryText.count
+    @vid = Video.count
+    @new = News.count
+    @adm = User.where(admin: true).count
   end
   
   def prev_list
@@ -60,13 +65,13 @@ class AdminController < ApplicationController
     redirect_to '/admin'
   end
   
-  def sendtext
+  def sendtext_user
     accountSID = ENV['TWILIO_SID']
     authToken = ENV['TWILIO_AUTH']
     @client = Twilio::REST::Client.new accountSID, authToken #Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token  
     from = ENV['BASE_NUM']
     
-    User.where(admin: false).find_each do |key, value| 
+    User.where(admin: false).find_each do |key| 
       message = @client.account.messages.create(
         :from=> from,
         :to=> key.phone,
@@ -77,7 +82,7 @@ class AdminController < ApplicationController
     
     HistoryText.create(script: params[:script], sender: params[:sender])
     
-    redirect_to '/admin'
+    redirect_to '/admin/publicity_new'
   end
   
   def video
