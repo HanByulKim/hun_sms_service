@@ -24,7 +24,6 @@
 </head>
 
 <body>
-    
     <% @news.each_with_index do |news,i| %>
         <a href="/news/article?id=<%=news.id%>">
           <div class="col s12 m7">
@@ -44,6 +43,8 @@
           </div>
         </a>
     <% end %>
-      
-    <%= will_paginate @video %>
+     
+    <div class="row">
+        <%= will_paginate(@news, :renderer => 'PaginationHelper::LinkRenderer') %>
+    </div>
 </body>

@@ -1,14 +1,16 @@
 <style>
-    strong{
-        font-weight:bold;
-        font-size:16pt;
-        line-height:normal;
-    }
-    strong_sub{
-        font-weight:bold;
-        font-size:13pt;
-        line-height:normal;
-    }
+  strong{
+      font-weight:bold;
+      font-size:16pt;
+      line-height:normal;
+  }
+  strong_sub{
+      font-weight:bold;
+      font-size:13pt;
+      line-height:normal;
+  }
+  
+  
 </style>
 
 <head>
@@ -48,7 +50,9 @@
     </a>
   <% end %>
   
-  <%= will_paginate @video %>
+  <div class="row">
+      <%= will_paginate(@video, :renderer => 'PaginationHelper::LinkRenderer') %>
+  </div>
   <!--
     <ul class="pagination">
       <li class="left"><a href="#!"><i class="material-icons">chevron_left</i></a></li>

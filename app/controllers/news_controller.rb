@@ -2,7 +2,7 @@ class NewsController < ApplicationController
    impressionist :actions=>[:article]
     
     def newsindex
-        @news = News.paginate(page: params[:page], per_page: 3).order('id DESC')
+        @news = News.paginate(page: params[:page], per_page: 3).order('created_at DESC')
         respond_to do |format|
             format.html
             format.json{ render json: @news }
