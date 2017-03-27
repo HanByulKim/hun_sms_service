@@ -10,179 +10,183 @@
   </nav>
 </head>
 
-<table border="1" summary="리스트">
-    <caption>리스트</caption>
-    <thead>
-        <tr>
-            <th scope="col">이름</th>
-            <th scope="col">휴대폰</th>
-            <th scope="col">거주동</th>
-            <th scope="col">선거구</th>
-            <th scope="col">지지분류</th>
-            <th scope="col">연령대</th>
-            <th scope="col">성별</th>
-            <th scope="col">인지도</th>
-            <th scope="col">의정평가</th>
-            <th scope="col">재지지 의향</th>
-            <th scope="col">국정지지도</th>
-            <th scope="col">정당지지도</th>
-            <th scope="col">경기지사</th>
-            <th scope="col">직업</th>
-            <th scope="col">직책</th>
-            <th scope="col">일반번호</th>
-            <th scope="col">직장번호</th>
-            <th scope="col">이메일</th>
-            <th scope="col">추천인</th>
-            <th scope="col">출신지역</th>
-            <th scope="col">생년월일</th>
-            <th scope="col">당비당원분류</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <td colspan="4">hbk</td>
-        </tr>
-    </tfoot>
-    <tbody>
-        <% @member.each do |member| %>
-            <tr>
-                <th scope="row"><%= member.name %></th>
-                <td><%= member.phone %></td>
-                <% if member.residence==1 %>
-                    <td>상동</td>
-                <% elsif member.residence==2 %>
-                    <td>상 1동</td>
-                <% elsif member.residence==3 %>
-                    <td>상 2동</td>
-                <% elsif member.residence==4 %>
-                    <td>상 3동</td>
-                <% elsif member.residence==5 %>
-                    <td>중동</td>
-                <% elsif member.residence==6 %>
-                    <td>중 1동</td>
-                <% elsif member.residence==7 %>
-                    <td>중 2동</td>
-                <% elsif member.residence==8 %>
-                    <td>중 3동</td>
-                <% elsif member.residence==9 %>
-                    <td>중 4동</td>
-                <% elsif member.residence==10 %>
-                    <td>약대동</td>
-                <% else %>
-                    <td> </td>
+<body>
+        <table border="1" summary="리스트">
+            <caption>리스트</caption>
+            <thead>
+                <tr>
+                    <th scope="col">이름</th>
+                    <th scope="col">휴대폰</th>
+                    <th scope="col">거주동</th>
+                    <th scope="col">선거구</th>
+                    <th scope="col">지지분류</th>
+                    <th scope="col">연령대</th>
+                    <th scope="col">성별</th>
+                    <th scope="col">인지도</th>
+                    <th scope="col">의정평가</th>
+                    <th scope="col">재지지 의향</th>
+                    <th scope="col">국정지지도</th>
+                    <th scope="col">정당지지도</th>
+                    <th scope="col">경기지사</th>
+                    <th scope="col">직업</th>
+                    <th scope="col">직책</th>
+                    <th scope="col">일반번호</th>
+                    <th scope="col">직장번호</th>
+                    <th scope="col">이메일</th>
+                    <th scope="col">추천인</th>
+                    <th scope="col">출신지역</th>
+                    <th scope="col">생년월일</th>
+                    <th scope="col">당비당원분류</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="4">hbk</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <% @member.each do |member| %>
+                    <tr>
+                        <th scope="row"><%= member.name %></th>
+                        <td><%= member.phone %></td>
+                        <% if member.residence==1 %>
+                            <td>상동</td>
+                        <% elsif member.residence==2 %>
+                            <td>상 1동</td>
+                        <% elsif member.residence==3 %>
+                            <td>상 2동</td>
+                        <% elsif member.residence==4 %>
+                            <td>상 3동</td>
+                        <% elsif member.residence==5 %>
+                            <td>중동</td>
+                        <% elsif member.residence==6 %>
+                            <td>중 1동</td>
+                        <% elsif member.residence==7 %>
+                            <td>중 2동</td>
+                        <% elsif member.residence==8 %>
+                            <td>중 3동</td>
+                        <% elsif member.residence==9 %>
+                            <td>중 4동</td>
+                        <% elsif member.residence==10 %>
+                            <td>약대동</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        <% if member.elec_constit==1 %>
+                            <td>원미(을)</td>
+                        <% elsif member.elec_constit==2 %>
+                            <td>원미(갑)</td>
+                        <% elsif member.elec_constit==3 %>
+                            <td>오정</td>
+                        <% elsif member.elec_constit==4 %>
+                            <td>소사</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        <% if member.support_ide <= 33 %>
+                            <td>진보</td>
+                        <% elsif member.support_ide > 33 && member.support_ide <63 %>
+                            <td>중도</td>
+                        <% elsif member.support_ide >= 63 %>
+                            <td>보수</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        <td><%= member.age %></td>
+                        
+                        <% if member.sex==1 %>
+                            <td>남</td>
+                        <% elsif member.sex==2 %>
+                            <td>여</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        <% if member.recog==1 %>
+                            <td>안다</td>
+                        <% elsif member.recog==2 %>
+                            <td>모른다</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        
+                        <% if member.par_eval==1 %>
+                            <td>잘한다</td>
+                        <% elsif member.par_eval==2 %>
+                            <td>보통</td>
+                        <% elsif member.par_eval==3 %>
+                            <td>못한다</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        <% if member.support_re==1 %>
+                            <td>있다</td>
+                        <% elsif member.support_re==2 %>
+                            <td>고민</td>
+                        <% elsif member.support_re==3 %>
+                            <td>없다</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        <% if member.support_gov==1 %>
+                            <td>잘한다</td>
+                        <% elsif member.support_gov==2 %>
+                            <td>보통</td>
+                        <% elsif member.support_gov==3 %>
+                            <td>못한다</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        <% if member.support_party==1 %>
+                            <td>더민주</td>
+                        <% elsif member.support_party==2 %>
+                            <td>자유</td>
+                        <% elsif member.support_party==3 %>
+                            <td>국민</td>
+                        <% elsif member.support_party==4 %>
+                            <td>바른</td>
+                        <% elsif member.support_party==5 %>
+                            <td>정의</td>
+                        <% elsif member.support_party==6 %>
+                            <td>무당</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                            
+                        <% if member.governer==1 %>
+                            <td>남경필</td>
+                        <% elsif member.governer==2 %>
+                            <td>김진표</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                        <td><%= member.job %></td>
+                        <td><%= member.position %></td>
+                        <td><%= member.homenum %></td>
+                        <td><%= member.compnum %></td>
+                        <td><%= member.email %></td>
+                        <td><%= member.recommender %></td>
+                        <td><%= member.native %></td>
+                        <td><%= member.birth %></td>
+                        
+                        <% if member.partyfee==1 %>
+                            <td>O</td>
+                        <% elsif member.partyfee==2 %>
+                            <td>X</td>
+                        <% else %>
+                            <td> </td>
+                        <% end %>
+                        
+                    </tr>
                 <% end %>
-                
-                <% if member.elec_constit==1 %>
-                    <td>원미(을)</td>
-                <% elsif member.elec_constit==2 %>
-                    <td>원미(갑)</td>
-                <% elsif member.elec_constit==3 %>
-                    <td>오정</td>
-                <% elsif member.elec_constit==4 %>
-                    <td>소사</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-                <% if member.support_ide==1 %>
-                    <td>진보</td>
-                <% elsif member.support_ide==2 %>
-                    <td>중도</td>
-                <% elsif member.support_ide==3 %>
-                    <td>보수</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-                <td><%= member.age %></td>
-                
-                <% if member.sex==1 %>
-                    <td>남</td>
-                <% elsif member.sex==2 %>
-                    <td>여</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-                <% if member.recog==1 %>
-                    <td>안다</td>
-                <% elsif member.recog==2 %>
-                    <td>모른다</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-                
-                <% if member.par_eval==1 %>
-                    <td>잘한다</td>
-                <% elsif member.par_eval==2 %>
-                    <td>보통</td>
-                <% elsif member.par_eval==3 %>
-                    <td>못한다</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-                <% if member.support_re==1 %>
-                    <td>있다</td>
-                <% elsif member.support_re==2 %>
-                    <td>고민</td>
-                <% elsif member.support_re==3 %>
-                    <td>없다</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-                <% if member.support_gov==1 %>
-                    <td>잘한다</td>
-                <% elsif member.support_gov==2 %>
-                    <td>보통</td>
-                <% elsif member.support_gov==3 %>
-                    <td>못한다</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-                <% if member.support_party==1 %>
-                    <td>더민주</td>
-                <% elsif member.support_party==2 %>
-                    <td>새누리</td>
-                <% elsif member.support_party==3 %>
-                    <td>국민</td>
-                <% elsif member.support_party==4 %>
-                    <td>바른</td>
-                <% elsif member.support_party==5 %>
-                    <td>정의</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                    
-                <% if member.governer==1 %>
-                    <td>남경필</td>
-                <% elsif member.governer==2 %>
-                    <td>김진표</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-                <td><%= member.job %></td>
-                <td><%= member.position %></td>
-                <td><%= member.homenum %></td>
-                <td><%= member.compnum %></td>
-                <td><%= member.email %></td>
-                <td><%= member.recommender %></td>
-                <td><%= member.native %></td>
-                <td><%= member.birth %></td>
-                
-                <% if member.partyfee==1 %>
-                    <td>O</td>
-                <% elsif member.partyfee==2 %>
-                    <td>X</td>
-                <% else %>
-                    <td> </td>
-                <% end %>
-                
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+            </tbody>
+        </table>
+</body>

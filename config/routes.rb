@@ -25,9 +25,11 @@ Rails.application.routes.draw do
   post '/admin/video/create' => 'admin#video_create'
   get '/admin/news' => 'admin@news'
   post '/admin/news/create' => 'admin#news_create'
+  post '/admin/statistics/member/record' => 'admin#statistics_member_record'
   
   get '/video/index' => 'video#index'
   get '/video/player' => 'video#player'
+  post '/video/comment' => 'video#comment'
   get '/news/index' => 'news#newsindex'
   get '/news/article' => 'news#article'
   get '/blog/index' => 'news#blogindex'
@@ -35,6 +37,16 @@ Rails.application.routes.draw do
   post '/users/invitation/sendtext' => 'users#invitation_sendtext'
   
   get '/error' => 'sessions#error'
+  
+  get '/admin/statistics/member' => 'admin#statistics_member'
+  get '/admin/statistics/post' => 'admin#statistics_post'
+  
+  resources :videos, except: [:show] do
+    post "/like", to: "video#like_toggle"
+  end
+  resources :news, except: [:show] do
+    post "/like", to: "news#like_toggle"
+  end
   # get '/' => 'tm#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

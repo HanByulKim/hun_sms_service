@@ -17,7 +17,11 @@
 <head>
     <div class="row container"><img id="sessions_top" src="/mark.png"></div>
 </head>
-
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
 <body>
     <!--</%= flash[:alert] %>-->
     <%= form_tag sessions_path do %>

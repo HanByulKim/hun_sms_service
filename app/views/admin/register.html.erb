@@ -11,29 +11,65 @@
 </head>
 
 <%= form_tag '/admin/create', method: 'post' do %>
-    <p>이름</p><input type="text" name="name"><br>
-    <p>휴대폰</p><input type="text" name="phone" value="+8210"><br>
-    <p>거주동</p><input type="text" name="residence"><br>
-    <p>선거구</p><input type="text" name="elec_constit"><br>
-    <p>지지분류</p><input type="text" name="support_ide"><br>
-    <p>연령대</p><input type="text" name="age"><br>
-    <p>성별</p><input type="text" name="sex"><br>
-    <p>인지도</p><input type="text" name="recog"><br>
-    <p>의정평가</p><input type="text" name="support_re"><br>
-    <p>재지지 의향</p><input type="text" name="par_eval"><br>
-    <p>국정지지도</p><input type="text" name="support_gov"><br>
-    <p>정당지지도</p><input type="text" name="support_party"><br>
-    <p>경기지사</p><input type="text" name="governer"><br>
-    <p>직책</p><input type="text" name="position"><br>
-    <p>직업</p><input type="text" name="job"><br>
-    <p>일반번호</p><input type="text" name="homenum"><br>
-    <p>직장번호</p><input type="text" name="compnum"><br>
-    <p>이메일</p><input type="text" name="email"><br>
-    <p>추천인</p><input type="text" name="recommender"><br>
-    <p>출신지역</p><input type="text" name="native"><br>
-    <p>생년월일</p><input type="text" name="birth"><br>
-    <p>당비당원분류</p><input type="text" name="partyfee"><br>
-    <input type="submit">
+    <div class="row container">
+        
+        <div class="input-field">
+          <input placeholder="이름" id="first_name" type="text" class="validate" name="name">
+          <label for="NAME">이름</label>
+        </div>
+        <div class="input-field">
+          <input placeholder="휴대폰" id="first_name" type="text" class="validate" name="phone" value="+8210">
+          <label for="PHONE">휴대폰</label>
+        </div>
+        <div class="input-field">
+            <select>
+              <option value="" name="residence" disabled selected>전체</option>
+              <option value="1" name="residence">전체</option>
+              <option value="2" name="residence">원미(을)</option>
+              <option value="3" name="residence">원미(갑)</option>
+              <option value="4" name="residence">오정</option>
+              <option value="5" name="residence">소사</option>
+            </select>
+            <label>거주동</label>
+        </div>
+        <div class="input-field">
+            <select>
+              <option value="" name="elec_constit" disabled selected>전체</option>
+              <option value="1" name="elec_constit">전체</option>
+              <option value="2" name="elec_constit">원미(을)</option>
+              <option value="3" name="elec_constit">원미(갑)</option>
+              <option value="4" name="elec_constit">오정</option>
+              <option value="5" name="elec_constit">소사</option>
+            </select>
+            <label>선거구</label>
+        </div>
+        <div class="input-field">
+            <label for="SUPPORT">지지분류</label>
+            <form action="#">
+                <p class="range-field">
+                    <input type="range" id="test5" min="0" max="100" name="support_ide" />
+                </p>
+            </form>
+        </div>
+        <p>연령대</p><input type="text" name="age"><br>
+        <p>성별</p><input type="text" name="sex"><br>
+        <p>인지도</p><input type="text" name="recog"><br>
+        <p>의정평가</p><input type="text" name="support_re"><br>
+        <p>재지지 의향</p><input type="text" name="par_eval"><br>
+        <p>국정지지도</p><input type="text" name="support_gov"><br>
+        <p>정당지지도</p><input type="text" name="support_party"><br>
+        <p>경기지사</p><input type="text" name="governer"><br>
+        <p>직책</p><input type="text" name="position"><br>
+        <p>직업</p><input type="text" name="job"><br>
+        <p>일반번호</p><input type="text" name="homenum"><br>
+        <p>직장번호</p><input type="text" name="compnum"><br>
+        <p>이메일</p><input type="text" name="email"><br>
+        <p>추천인</p><input type="text" name="recommender"><br>
+        <p>출신지역</p><input type="text" name="native"><br>
+        <p>생년월일</p><input type="text" name="birth"><br>
+        <p>당비당원분류</p><input type="text" name="partyfee"><br>
+        <input type="submit">
+    </div>
 <% end %>
 
 <table border="1" summary="리스트">
@@ -212,6 +248,12 @@
         <% end %>
     </tbody>
 </table>
+
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
 <!--
 <style>
 

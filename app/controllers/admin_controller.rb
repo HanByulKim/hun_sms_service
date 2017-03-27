@@ -107,4 +107,57 @@ class AdminController < ApplicationController
   def publicity_history
     @history = HistoryText.all.reverse
   end
+  
+  def statistics_member
+    @residence = Array.new
+    @supp_party = Array.new
+    @residence = Array.new
+    
+    for i in 1..5
+      @residence << Member.where(residence: i).count
+    end
+    
+    for i in 1..6
+      @supp_party << Member.where(support_party: i).count
+    end
+  end
+  
+  def statistics_member_record
+    redirect_to '/admin/statistics/member'
+  end
+  
+  def statistics_post
+    @views_news = Array.new
+    @views_video = Array.new
+    
+    if(News.count < 10)
+      for i in News.count..9
+        @views_news << 0
+      end
+      for i in 0..News.count-1
+        temp = News.find(News.count - i)
+        @views_news << temp.views
+      end
+    else
+      for i in 0..9
+        temp = News.find(News.count - i)
+        @views_news << temp.views
+      end
+    end
+    
+    if(Video.count < 10)
+      for i in Video.count..9
+        @views_video << 0
+      end
+      for i in 0..Video.count-1
+        temp = Video.find(Video.count - i)
+        @views_video << temp.views
+      end
+    else
+      for i in 0..9
+        temp = Video.find(Video.count - i)
+        @views_video << temp.views
+      end
+    end
+  end
 end

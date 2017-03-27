@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'impressionist'
+gem 'chart-js-rails'
 gem 'will_paginate-materialize'
 gem 'will_paginate', '~> 3.0'
 gem 'nokogiri'

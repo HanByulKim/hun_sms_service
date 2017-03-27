@@ -1,12 +1,32 @@
-<body>
-  <style>
-      img{
-          width:70%;
-      }
-      strong{
+<style>
+    strong{
         font-weight:bold;
-      }
-  </style>
+        font-size:16pt;
+        line-height:normal;
+    }
+    strong_sub{
+        font-weight:bold;
+        font-size:13pt;
+        line-height:normal;
+    }
+    img{
+        width:70%;
+    }
+</style>
+
+<head>
+  <nav>
+    <div class="nav-wrapper blue accent-3">
+        <div class="col s2">
+        </div>
+        <div class="col s10">
+            <a href="/news/index" class="breadcrumb" style="padding-left:10px;"><strong_sub>언론활동</strong_sub></a>
+        </div>
+    </div>
+  </nav>
+</head>
+
+<body>
   <div class="row container">
     <div class="row" id="article_classification">
       <strong>
@@ -17,7 +37,7 @@
       <h4><%=@article.title%></h4>
     </div>
     <div class="row" id="article_date">
-      <h8><%=@article.posted%></h8>
+      <h8><%=@article.posted%></h8><h8 style="float:right;"><%= @view.views %> views</h8>
     </div>
     <div class="row" id="article_subheader">
       <h6><strong><%=@article.subtitle%></strong></h6>
@@ -28,5 +48,16 @@
     <div class="row" id="article_script">
         <%=@article.script%>
     </div>
+  </div>
+  
+  <div class="row"></div>
+  
+  <div class="row container">
+    <%= @article.likenews.size %> 명이 좋아합니다.
+    <% if current_user.is_like_news?(@article) %>
+      <%= link_to "좋아요 취소", news_like_url(@article), method: "post" %>
+    <% else %>
+      <%= link_to "좋아요", news_like_url(@article), method: "post" %>
+    <% end %>
   </div>
 </body>

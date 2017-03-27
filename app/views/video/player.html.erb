@@ -1,13 +1,42 @@
+<style>
+  strong{
+      font-weight:bold;
+      font-size:16pt;
+      line-height:normal;
+  }
+  strong_sub{
+      font-weight:bold;
+      font-size:13pt;
+      line-height:normal;
+  }
+  #but_sign{
+    width:100%;
+    height:50px;
+    font-size:30px;
+    vertical-align:middle;
+  }
+</style>
+
+<head>
+  <nav>
+    <div class="nav-wrapper red darken-1">
+        <div class="col s2">
+        </div>
+        <div class="col s10">
+            <a href="/video/index" class="breadcrumb" style="padding-left:10px;"><strong_sub>영상</strong_sub></a>
+        </div>
+    </div>
+  </nav>
+</head>
+
 <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 <body>
   <div class="row">
     <div class="row">
-      <strong>
-        <a style="color:blue;">영상</a>
-      </strong>
+      <h4><%=@play.title%></h4>
     </div>
     <div class="row">
-      <h4><%=@play.title%></h4>
+      <h8 style="float:right;"><%= @view.views %> views</h8>
     </div>
     <div class="row">
       <h6><%=@play.subtitle%></h6>
@@ -20,6 +49,45 @@
   <div class="video-container">
     <div id="player" style="width:100%;"></div>
   </div>
+  
+  <div class="row"></div>
+  
+  <ul class="collection">
+    <li class="collection-item"><%= @play.likevideos.size %> 명이 좋아합니다.</li>
+    
+    <% if user_signed_in? %><!-- 관리자만의 탭 입력 -->
+      <li class="collection-item">
+        <% if current_user.is_like_video?(@play) %>
+          <%= link_to "좋아요 취소", video_like_url(@play), method: "post" %>
+        <% else %>
+          <%= link_to "좋아요", video_like_url(@play), method: "post" %>
+        <% end %>
+      </li>
+      <li class="collection-item">
+        <%= form_tag '/video/comment' do %>
+          <div class="row container">
+            <div class="input-field">
+              <i class="material-icons prefix">mode_edit</i>
+              <textarea id="icon_prefix2" class="materialize-textarea" type="text" name="comment"></textarea>
+              <label for="icon_prefix2">댓글</label>
+            </div>
+            <input type="hidden" name="video_id" value="<%=@play.id%>">
+            <input type="hidden" name="user_id" value="<%=current_user.id%>">
+          </div>
+          <div class="row container">
+            <input class="waves-effect waves-light btn" id="but_sign" type="submit" value="작성">
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+    
+    <% @play.commentvideos.each do |c| %>
+      <li class="collection-item">
+        <a><%= User.find(c.user_id).name %></a>
+        <a><%= c.script %></a>
+      </li>
+    <% end %>
+  </ul>
 
   <script>
     // 2. This code loads the IFrame Player API code asynchronously.
