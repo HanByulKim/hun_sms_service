@@ -37,7 +37,7 @@
       <h4><%=@article.title%></h4>
     </div>
     <div class="row" id="article_date">
-      <h8><%=@article.posted%></h8><h8 style="float:right;"><%= @view.views %> views</h8>
+      <h8><%=@article.posted.strftime("%Y.%m.%d")%></h8><h8 style="float:right;"><%= @view.views %> views</h8>
     </div>
     <div class="row" id="article_subheader">
       <h6><strong><%=@article.subtitle%></strong></h6>
@@ -46,7 +46,7 @@
         <img src="<%=@article.imgurl%>">
     </div>
     <div class="row" id="article_script">
-        <%=@article.script%>
+        <%=simple_format(@article.script)%>
     </div>
   </div>
   

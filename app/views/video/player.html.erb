@@ -31,18 +31,20 @@
 
 <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 <body>
-  <div class="row">
-    <div class="row">
+  <div class="row container">
+    <div class="row" id="article_classification">
+      <strong>
+        <a style="color:red;">영상</a>
+      </strong>
+    </div>
+    <div class="row" id="article_header">
       <h4><%=@play.title%></h4>
     </div>
-    <div class="row">
-      <h8 style="float:right;"><%= @view.views %> views</h8>
+    <div class="row" id="article_date">
+      <h8><%=@play.created_at.strftime("%Y.%m.%d")%></h8><h8 style="float:right;"><%= @view.views %> views</h8>
     </div>
-    <div class="row">
-      <h6><%=@play.subtitle%></h6>
-    </div>
-    <div class="row">
-      <h8><%=@play.created_at%></h8>
+    <div class="row" id="article_subheader">
+      <h6><strong><%=@play.subtitle%></strong></h6>
     </div>
   </div>
   
