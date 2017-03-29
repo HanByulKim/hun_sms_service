@@ -62,7 +62,45 @@
                     </div>
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">지지자 성향<i class="material-icons right">more_vert</i></span>
+                  <span class="card-title activator grey-text text-darken-4">뉴스 관심도<i class="material-icons right">more_vert</i></span>
+                  <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal" contenteditable="true">
+                  <span class="card-title grey-text text-darken-4"><i class="material-icons prefix">mode_edit</i> 기록<i class="material-icons right">close</i></span>
+                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col s6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <div style="width:100%;height:100%;">
+                        <canvas id="myChart4" width="100" height="100"></canvas>
+                    </div>
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">비디오 관심도<i class="material-icons right">more_vert</i></span>
+                  <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal" contenteditable="true">
+                  <span class="card-title grey-text text-darken-4"><i class="material-icons prefix">mode_edit</i> 기록<i class="material-icons right">close</i></span>
+                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row container">
+        <div class="col s6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <div style="width:100%;height:100%;">
+                        <canvas id="myChart5" width="100" height="100"></canvas>
+                    </div>
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">전체 관심도<i class="material-icons right">more_vert</i></span>
                   <p><a href="#">This is a link</a></p>
                 </div>
                 <div class="card-reveal" contenteditable="true">
@@ -83,6 +121,8 @@
     var ctx1 = document.getElementById("myChart1");
     var ctx2 = document.getElementById("myChart2");
     var ctx3 = document.getElementById("myChart3");
+    var ctx4 = document.getElementById("myChart4");
+    var ctx5 = document.getElementById("myChart5");
     
     var myChart1 = new Chart(ctx1, {
         type: 'bar',
@@ -178,6 +218,131 @@
             title: {
                 display: true,
                 text: '게시물 별 조회수'
+            }
+        }
+    });
+    
+    var myChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: ["<%=@datelabel[9]%>", "<%=@datelabel[8]%>", "<%=@datelabel[7]%>", "<%=@datelabel[6]%>", "<%=@datelabel[5]%>", "<%=@datelabel[4]%>", "<%=@datelabel[3]%>", "<%=@datelabel[2]%>", "<%=@datelabel[1]%>", "<%=@datelabel[0]%>"],
+            datasets: [{
+                label: '좋아요',
+                data: ["<%=@interest_news[9]%>", "<%=@interest_news[8]%>", "<%=@interest_news[7]%>", "<%=@interest_news[6]%>", "<%=@interest_news[5]%>", "<%=@interest_news[4]%>", "<%=@interest_news[3]%>", "<%=@interest_news[2]%>", "<%=@interest_news[1]%>", "<%=@interest_news[0]%>"],
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(75,192,192,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: '뉴스 관심도 수'
+            }
+        }
+    });
+    
+    var myChart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: ["<%=@datelabel[9]%>", "<%=@datelabel[8]%>", "<%=@datelabel[7]%>", "<%=@datelabel[6]%>", "<%=@datelabel[5]%>", "<%=@datelabel[4]%>", "<%=@datelabel[3]%>", "<%=@datelabel[2]%>", "<%=@datelabel[1]%>", "<%=@datelabel[0]%>"],
+            datasets: [{
+                label: '좋아요',
+                data: ["<%=@interest_video[9]%>", "<%=@interest_video[8]%>", "<%=@interest_video[7]%>", "<%=@interest_video[6]%>", "<%=@interest_video[5]%>", "<%=@interest_video[4]%>", "<%=@interest_video[3]%>", "<%=@interest_video[2]%>", "<%=@interest_video[1]%>", "<%=@interest_video[0]%>"],
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: '비디오 관심도 수'
+            }
+        }
+    });
+    
+    var myChart5 = new Chart(ctx5, {
+        type: 'line',
+        data: {
+            labels: ["<%=@datelabel[9]%>", "<%=@datelabel[8]%>", "<%=@datelabel[7]%>", "<%=@datelabel[6]%>", "<%=@datelabel[5]%>", "<%=@datelabel[4]%>", "<%=@datelabel[3]%>", "<%=@datelabel[2]%>", "<%=@datelabel[1]%>", "<%=@datelabel[0]%>"],
+            datasets: [{
+                label: '좋아요',
+                data: ["<%=@interest_news[9] + @interest_video[9]%>", "<%=@interest_news[8] + @interest_video[8]%>", "<%=@interest_news[7] + @interest_video[7]%>",
+                    "<%=@interest_news[6] + @interest_video[6]%>", "<%=@interest_news[5] + @interest_video[5]%>", "<%=@interest_news[4] + @interest_video[4]%>",
+                    "<%=@interest_news[3] + @interest_video[3]%>", "<%=@interest_news[2] + @interest_video[2]%>", "<%=@interest_news[1] + @interest_video[1]%>", "<%=@interest_news[0] + @interest_video[0]%>"],
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: '비디오 관심도 수'
             }
         }
     });

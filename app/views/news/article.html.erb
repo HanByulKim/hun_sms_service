@@ -1,17 +1,24 @@
 <style>
-    strong{
-        font-weight:bold;
-        font-size:16pt;
-        line-height:normal;
-    }
-    strong_sub{
-        font-weight:bold;
-        font-size:13pt;
-        line-height:normal;
-    }
-    img{
-        width:70%;
-    }
+  strong{
+      font-weight:bold;
+      font-size:16pt;
+      line-height:normal;
+  }
+  strong_sub{
+      font-weight:bold;
+      font-size:13pt;
+      line-height:normal;
+  }
+  img{
+      width:70%;
+  }
+  #but_comment{
+    float:right;
+    height:100%;
+    font-size:20px;
+    line-height: 30px;
+    vertical-align:middle;
+  }
 </style>
 
 <head>
@@ -40,7 +47,7 @@
       <h8><%=@article.posted.strftime("%Y.%m.%d")%></h8><h8 style="float:right;"><%= @view.views %> views</h8>
     </div>
     <div class="row" id="article_subheader">
-      <h6><strong><%=@article.subtitle%></strong></h6>
+      <h6><strong><%=simple_format(@article.subtitle)%></strong></h6>
     </div>
     <div class="row" id="article_img">
         <img src="<%=@article.imgurl%>">
@@ -52,12 +59,44 @@
   
   <div class="row"></div>
   
-  <div class="row container">
-    <%= @article.likenews.size %> 명이 좋아합니다.
-    <% if current_user.is_like_news?(@article) %>
-      <%= link_to "좋아요 취소", news_like_url(@article), method: "post" %>
-    <% else %>
-      <%= link_to "좋아요", news_like_url(@article), method: "post" %>
+  <ul class="collection">
+    <li class="collection-item" style="background-color:#e9ecef;"><%= @article.likenews.size %> 명이 좋아합니다.</li>
+    
+    <% if user_signed_in? %><!-- 관리자만의 탭 입력 -->
+      <% if current_user.is_like_news?(@article) %>
+        <%= link_to "좋아요 취소", news_like_url(@article), method: "post" %>
+      <% else %>
+        <%= link_to "좋아요", news_like_url(@article), method: "post" %>
+      <% end %>
+      </li>
+      <li class="collection-item">
+        <%= form_tag '/news/comment' do %>
+          <div class="row container">
+            <strong_sub><a style="color:black;"><%=current_user.name%></a></strong_sub>
+          </div>
+          <div class="row container">
+            <div class="input-field">
+              <textarea id="icon_prefix2" class="materialize-textarea" type="text" name="comment" style="margin-bottom: 0px;"></textarea>
+              <label for="icon_prefix2">댓글</label>
+            </div>
+            <input type="hidden" name="video_id" value="<%=@article.id%>">
+            <input type="hidden" name="user_id" value="<%=current_user.id%>">
+          </div>
+          <div class="row container">
+            <input class="waves-effect waves-light btn" id="but_comment" type="submit" value="작성">
+          </div>
+        <% end %>
+      </li>
     <% end %>
-  </div>
+    
+    <% @article.commentnews.each do |c| %>
+      <li class="collection-item">
+        <strong_sub>
+          <a style="color:black;"><%= User.find(c.user_id).name %></a>
+        </strong_sub>
+        <br>
+        <a style="color:black; padding-left:5pt;"><%=c.script %></a>
+      </li>
+    <% end %>
+  </ul>
 </body>

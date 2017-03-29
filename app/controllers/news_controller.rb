@@ -28,6 +28,11 @@ class NewsController < ApplicationController
         redirect_to :back
     end
     
+    def comment
+        Commentnews.create(script: params[:comment], news_id: params[:video_id], user_id: params[:user_id], blind: false) 
+        redirect_to :back
+    end
+    
     def blogindex
         @titles = Array.new
         @subtitles = Array.new

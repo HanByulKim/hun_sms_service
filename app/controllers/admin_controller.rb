@@ -129,6 +129,9 @@ class AdminController < ApplicationController
   def statistics_post
     @views_news = Array.new
     @views_video = Array.new
+    @interest_news = Array.new
+    @interest_video = Array.new
+    @datelabel = Array.new
     
     if(News.count < 10)
       for i in News.count..9
@@ -158,6 +161,14 @@ class AdminController < ApplicationController
         temp = Video.find(Video.count - i)
         @views_video << temp.views
       end
+    end
+  
+    for i in 0..9
+      temp = Likenews.where("date(created_at) in (?)", Date.today - i)
+      @interest_news << temp.count
+      temp = Likevideo.where("date(created_at) in (?)", Date.today - i)
+      @interest_video << temp.count
+      @datelabel << (Date.today - i).strftime("%m.%d")
     end
   end
 end

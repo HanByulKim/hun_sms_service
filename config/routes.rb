@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get '/news/index' => 'news#newsindex'
   get '/news/article' => 'news#article'
   get '/blog/index' => 'news#blogindex'
+  post '/news/comment' => 'news#comment'
   get '/users/invitation' => 'users#invitation'
   post '/users/invitation/sendtext' => 'users#invitation_sendtext'
   
